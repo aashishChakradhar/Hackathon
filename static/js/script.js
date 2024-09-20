@@ -1,6 +1,6 @@
 async function processResponse() {
     async function get_response() {
-        const api = 'http://127.0.0.1:8001/group';
+        const api = 'http://127.0.0.1:8001/predict';
         const response = await fetch(api,{
                 method : 'POST',
                 headers: {
@@ -13,6 +13,7 @@ async function processResponse() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        console.log(data)
         return {data};   
     }
 
