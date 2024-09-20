@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+{% block body%}
+
+    <div class="container">
+    <div class="skill-level">
+        <form action="/student-form" method="POST">
+            {% csrf_token %}
+            <h2>Rate yourself</h2>
+            <label for="coding">Coding : 0</label>
+            <input type="range" name="coding" min="0" max="100" value="50" oninput="updateValue('valueDisplay1', this.value)">
+            <div class="slider-value">
+                 Value: <span id="valueDisplay1">50</span>
+            </div><br>
+
+            <label for="leadership">Leadership : 0</label>
+            <input type="range" name="leadership" min="0" max="100" value="50" oninput="updateValue('valueDisplay2', this.value)">
+            <div class="slider-value">
+                 Value: <span id="valueDisplay2">50</span>
+            </div><br>
+
+            <label for="communication">Communication skill : 0</label>
+            <input type="range" name="communication" min="0" max="100" value="50" oninput="updateValue('valueDisplay3', this.value)">
+            <div class="slider-value">
+                 Value: <span id="valueDisplay3">50</span>
+            </div><br>
+
+            <label for="presentation">Presentation Designing : 0</label>
+            <input type="range" name = 'presentation' min="0" max="100" value="50" oninput="updateValue('valueDisplay4', this.value)">
+            <div class="slider-value">
+                 Value: <span id="valueDisplay4">50</span>
+            </div><br>
+
+            <input type="submit" id="submit" name="submit" value="Submit">
+        </form>
+    </div>
+    </div>
+    <script>
+        // Function to update the displayed value for each slider
+        function updateValue(displayId, val) {
+            document.getElementById(displayId).innerText = val;
+        }
+
+        document.getElementById('studentForm').addEventListener('submit', (e)=>{
+            e.preventDefault();
+            console.log(document.querySelector('input[name="coding"]').value)
+        })
+    </script>
+
+{% endblock body%}

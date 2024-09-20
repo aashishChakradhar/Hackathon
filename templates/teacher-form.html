@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+        <div class="container">
+            <div class="skill-selection">
+                <h2>Skill Selection for the project</h2>
+                <form name="userForm" onsubmit="return validateForm(event)">
+
+                    <!-- Project Title Input -->
+                    <label for="project-title">Project Title:</label>
+                    <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required><br /><br />
+                    
+                    <div class="checkboxes-section">
+                        <label for="coding">Coding :</label>
+                        <input type="checkbox" id="coding" name="coding"><br /><br />
+
+                        <label for="leadership">Leadership :</label>
+                        <input type="checkbox" id="leadership" name="leadership"><br /><br />
+
+                        <label for="communication">Communication Skills :</label>
+                        <input type="checkbox" id="communication" name="communication"><br /><br />
+
+                        <label for="presentation">Presentation Designing :</label>
+                        <input type="checkbox" id="presentation" name="presentation"><br /><br />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <input type="button" id="submit" name="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+{% endblock body %}
