@@ -5,7 +5,6 @@
     <div class="skill-level">
         <form action="/student-form" method="POST">
             {% csrf_token %}
-            {{context.page_name}}
             <h2>Rate yourself</h2>
             <label for="coding">Coding : 0</label>
             <input type="range" name="coding" min="0" max="100" value="50" oninput="updateValue('valueDisplay1', this.value)">
