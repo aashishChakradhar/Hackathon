@@ -38,6 +38,49 @@ leadership_questions = {
         3 : "Recognize team members’ efforts by celebrating small wins and giving praise where due to maintain morale.",
         4 : "Delegate tasks based on each team member’s strengths, ensuring that the workload is balanced across the team.",
         5 : "Encourage open communication by holding a team meeting where everyone can voice concerns and suggest improvements.",
-    }
-
+    },
 }
+
+coding_question = {
+    "You are tasked with improving the performance of a function that processes a large dataset. The function is slow due to repeated operations and inefficient data structures. Which of the following strategies would help optimize the function?" :{
+        0 : "Switch from a list to a linked list for faster random access.",
+        1 : "Use recursion to reduce the amount of code and improve performance by avoiding loops.",
+        2 : "Avoid premature optimization and focus on code readability and maintainability, as the function might be fast enough for most use cases.",
+        3 : "Profile the code using a performance profiling tool to identify the slowest parts of the function and focus optimization efforts there.",
+        4 : "Replace nested loops with a hash map (dictionary in Python) where possible to reduce the time complexity of lookups.",
+        5 : "Implement caching (memoization) to store results of expensive function calls and avoid redundant computations.",
+    },
+    "You are developing an application that processes user input and stores it in a database. To ensure the application is robust and efficient, which strategies would you implement for handling user input and database interactions? " : {
+        0 : "Log all user inputs without any restrictions for debugging purposes.",
+        1 : "Use raw SQL queries for all database interactions to maximize performance.",
+        2 : "Sanitize user input before storing it in the database to prevent security vulnerabilities.",
+        3 : "Utilize connection pooling to manage database connections efficiently and reduce latency.",
+        4 : "Validate user input on both the client side and server side to prevent invalid data from being processed.",
+        5 : "Implement prepared statements or parameterized queries to protect against SQL injection attacks.",
+    },
+    "You are developing a mobile application that needs to handle real-time user location updates efficiently. What strategies would you implement to ensure optimal performance and resource usage?" : {
+        0 : "Continuously request the most accurate location data every second to ensure precision at all times.",
+        1 : "Send all location updates to the server immediately, regardless of their frequency or the user’s activity state.",
+        2 : "Implement background location updates with minimal accuracy to save power when the user is not actively using the app.",
+        3 : "Utilize a low-power location tracking API that reduces the frequency of location updates while maintaining acceptable accuracy.",
+        4 : "Optimize the data processing of location updates by using efficient algorithms to handle and store data.",
+        5 : "Use geofencing to limit location updates to specific areas, reducing unnecessary computations and battery usage.",
+    },
+    "You are tasked with improving the performance of a function that processes a large dataset. The function is slow due to repeated operations and inefficient data structures. Which of the following strategies would help optimize the function?" : {
+        0 : "Switch from a list to a linked list for faster random access.",
+        1 : "Use recursion to reduce the amount of code and improve performance by avoiding loops.",
+        2 : "Avoid premature optimization and focus on code readability and maintainability, as the function might be fast enough for most use cases.",
+        3 : "Profile the code using a performance profiling tool to identify the slowest parts of the function and focus optimization efforts there.",
+        4 : "Implement caching (memoization) to store results of expensive function calls and avoid redundant computations.",
+        5 : "Replace nested loops with a hash map (dictionary in Python) where possible to reduce the time complexity of lookups.",
+    },
+    "You are developing an application that needs to handle a large number of user requests efficiently. What techniques would you use to ensure the application scales well under high load?" : {
+        0 : "Write code that is easy to read and maintain, as it will help future developers.",
+        1 : "Use a single-threaded event loop to handle requests asynchronously.",
+        2 : "Implement rate limiting to control the number of requests a user can make in a given time frame.",
+        3 : "Use microservices architecture to break down the application into smaller, manageable services.",
+        4 : "Implement load balancing to distribute incoming requests across multiple servers.",
+        5 : "Optimize database queries by using indexing and caching frequently accessed data.",
+    },
+}
+
