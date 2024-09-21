@@ -37,6 +37,10 @@ def predict():
         # Create separate dataframes for each cluster
         dataframes = {f'data_{x}': data[data['cluster'] == x] for x in data['cluster'].unique()}
 
+        # Find the smallest dataset
+        smallest_dataset_name = min(dataframes, key=lambda k: len(dataframes[k]))
+        minvalue = len(dataframes[smallest_dataset_name])
+
         # Assuming you have a list of DataFrames
         dataframes = [data[data['cluster'] == x] for x in data['cluster'].unique()]# List of your DataFrames
 
@@ -76,9 +80,8 @@ def predict():
             else:
                 # Break if we can't form any more full groups of 4
                 break
-
+        
         return groups
-
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Data file not found")
     except Exception as e:
