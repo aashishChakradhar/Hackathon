@@ -13,7 +13,7 @@
             <input type="range" name="coding" min="0" max="100" value="50" oninput="updateValue('valueDisplay1', this.value)">
             <br>
 
-            <label for="leadership">Leadership : : <span id="valueDisplay1">50</span> </label>
+            <label for="leadership">Leadership : <span id="valueDisplay1">50</span> </label>
             <input type="range" name="leadership" min="0" max="100" value="50" oninput="updateValue('valueDisplay2', this.value)">
             <br>
 
@@ -34,11 +34,11 @@
         function updateValue(displayId, val) {
             document.getElementById(displayId).innerText = val;
         }
-{% comment %} 
-        document.getElementById('studentForm').addEventListener('submit', (e)=>{
-            e.preventDefault();
-            console.log(document.querySelector('input[name="coding"]').value)
-        }) {% endcomment %}
+// {% comment %} 
+//         document.getElementById('studentForm').addEventListener('submit', (e)=>{
+//             e.preventDefault();
+//             console.log(document.querySelector('input[name="coding"]').value)
+//         }) {% endcomment %}
     </script>
 
 {% endblock body%}
