@@ -307,15 +307,14 @@ class Student_Profile(View):
 
 class Question_Form(View):
     def get(self,request):  # Assuming the form ID is passed in the URL
-        text = questionaries.hello()
-        # intake = questionaries.randomQuestion()
-        questionList = ['apple is good','ball is good','cat is good','dog is good','elephant is good']
-        answerList = ['a','b','c','d','e']
+        
+        random_questions = questionaries.create_random_question_dict()
+        
+
         context = {
             'page_name':'question_form',
             'text': text,
-            'questionList' : questionList,
-            'answerList':answerList
+            'random_questions' : random_questions,
         }
         
         return render(request, "questionform.html", context)
