@@ -37,5 +37,9 @@ class Skillset(BaseModel):
         return self.title
     
 
-class detail(BaseModel):
-    press = models.CharField(default = 'Unknown', max_length=50)
+class Group(BaseModel):
+    name = models.IntegerField(default = 0)
+    member = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name

@@ -19,15 +19,27 @@ import pandas as pd
 # from django.contrib.auth.decorators import login_required
 # from django.urls import reverse_lazy
 
+
 class Index(View):
-    def get(self, request):
+    def get(self,request):
         context = {
             "page_name":"Home"
         }
-        if request.user.is_anonymous:
-            return redirect("/login")
-        else:
-            return render (request,"index.html",context)
+        try:
+            if request.user.is_anonymous:
+                return redirect("/login")
+            elif not request.user.is_staff and not request.user.is_superuser:
+                return render(request,"student_index.html",context)
+            elif not request.user.is_superuser and request.user.is_staff:
+                return render (request,"teacher_index.html",context)
+        except Exception as e:
+            pass
+            
+class Logout_view(View):
+    def get(self,request):
+        request.session.clear()
+        logout(request)
+        return redirect('/')
       
 class Login_view(View):
     def get(self,request):
@@ -54,11 +66,7 @@ class Login_view(View):
             request.session['alert_detail'] = "Please enter valid login credential."
             return redirect(request.path)
         
-class Logout_view(View):
-    def get(self,request):
-        request.session.clear()
-        logout(request)
-        return redirect('/')
+
 
 class Signup_View (View):
     def get(self,request):
@@ -238,6 +246,7 @@ class formdetailview(View):
         return redirect ('/')  
 
 
+    
     
 
 class student_form_view(View):
