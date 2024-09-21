@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}
+{{page_name}}
+{% endblock title %}
+{% block body %}
+<div class="container">
+    <div class="question-wrapper">
+        <h2 class="text-center">questionaire</h2>
+        {% for question in questionList %}
+        <div class="question-box">
+            <h3>question: {{question}}</h3>
+            {% for answer in answerList %}
+
+            <div class="form-check">
+                <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="answer" id="exampleRansweradios1" value="option1">
+
+                    {{answer}}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}

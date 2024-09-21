@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{page_name}}
+{% endblock title %}
+
+{% block body %}
+<div class="card-listing">
+  <div class="card" >
+    <a href="#">
+        <img src="static/image/group.jpg" alt="group icon" width="250" height="250">
+    </a>
+  </div>
+
+
+  <div class="card" >
+      <a href="{% url 'group:formlisting' %}">
+          <img src="static/image/form.jpg" alt="form icon" width="250" height="250">
+      </a>
+  </div>
+
+  <div class="card" >
+    <a href="{% url 'group:logout' %}">
+        <img src="static/image/logout.jpg" alt="Logout icon" width="250" height="250">
+    </a>
+  </div>
+</div>
+{% endblock body %}
+

@@ -27,17 +27,19 @@ class FormDetail(BaseModel):
 
 class Skillset(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to User model
-    form_detail = models.ForeignKey(FormDetail,related_name='formdetail', on_delete=models.CASCADE)  # Link to FormDetail
-    title = models.CharField(max_length=50)
-    description = models.CharField(max_length=100)
+    title = models.CharField( max_length=50)  # Link to FormDetail
     coding = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     leadership = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     communication = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     presentation = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     def __str__(self):
-        return self.form_detail
+        return self.title
     
 
-class detail(BaseModel):
-    press = models.CharField(default = 'Unknown', max_length=50)
+class Group(BaseModel):
+    name = models.IntegerField(default = 0)
+    member = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
