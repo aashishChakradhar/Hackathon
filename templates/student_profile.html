@@ -14,6 +14,9 @@
             <div class="std-img">
                 <img src="../static/image/group.jpg" alt="">
             </div>
+            
+            <span class="useriddata d-none" data-userid="{{user_id}}"></span>
+
             <div class="std-details">
                 <div class="std-name">
                     {{first_name}} {{last_name}}
@@ -33,5 +36,23 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            // Path to JSON file: "../data/data.json"
+            fetch('/static/data/data.json') // Go up one directory from 'templates' to 'data'
+                .then(response => response.json()) // Parse the JSON data
+                .then(data => {
+                    console.log(data); // Handle your data here
+
+                })
+                .catch(error => {
+                    console.error('Error reading JSON file:', error);
+                });
+
+            // Example to log 'data-userid' attribute of an element with class 'useriddata'
+            console.log(document.querySelector('.useriddata').getAttribute('data-userid'));
+        });
+    </script>
 
 {% endblock body %}
