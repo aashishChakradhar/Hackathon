@@ -110,8 +110,8 @@ class teacher_form_view(View):
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
-            title = request.POST.get('title')
-            description = request.POST.get('description')
+            title = request.POST.get('project-title')
+            description = request.POST.get('project-description')
 
             communication = request.POST.get('communication') is not None
             presentation = request.POST.get('presentation') is not None
@@ -126,15 +126,11 @@ class teacher_form_view(View):
                 coding = coding,
                 leadership = leadership,
             ).save() 
+            return HttpResponse()
         
         return redirect ('/')  
     
 class student_form_view(View):
-    '''def get(self, request):
-        context = {
-            "page_name" : "student signup"
-        }
-        return render(request, 'student.html', context)'''
     
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
