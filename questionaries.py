@@ -172,25 +172,47 @@ presentation_question = {
     },   
 }
 
+    
 
-# # def generateQuestion():
-# skillList = [coding_question, leadership_question, communication_question, presentation_question]
-# for skill in skillList:
-#     questionList = skill.values()
-#     print (f"{questionList}")
 
+
+def create_random_question_dict(dictionaries):
+    """Creates a new dictionary containing one random element from each dictionary.
+
+    Args:
+        dictionaries (list): A list of dictionaries.
+
+    Returns:
+        dict: A new dictionary containing one random element from each dictionary.
+    """
+
+    new_dict = {}
+    for dictionary in dictionaries:
+        random_key = random.choice(list(dictionary.keys()))
+        new_dict[random_key] = dictionary[random_key]
+    return new_dict
+
+# Example usage:
+dictionaries = [coding_question, leadership_question, communication_question, presentation_question]
+random_questions = create_random_question_dict(dictionaries)
+print(random_questions)
+
+
+# Print the key and value
+# print(random_question)
+# print(random_answer)
 
     
-def hello():
-    return('Hello world')
+# def hello():
+#     return('Hello world')
 
-def randomQuestion(skill):
-    questionList = list(skill.keys())
-    random_question = random.choice(questionList)
-    questionDict = {
-        "question" : random_question,
-        "answer" : skill[random_question],
-    }
-    return questionDict
+# def randomQuestion(skill):
+#     questionList = list(skill.keys())
+#     random_question = random.choice(questionList)
+#     questionDict = {
+#         "question" : random_question,
+#         "answer" : skill[random_question],
+#     }
+#     return questionDict
 
-print(randomQuestion(leadership_question))
+# print(randomQuestion(leadership_question))
