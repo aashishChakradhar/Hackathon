@@ -1,45 +1,4 @@
-leadership_questions = {
-    'You are leading a team working on a high-pressure project with tight deadlines. Your team members are facing challenges, and the project has fallen behind schedule. How would you handle the situation?' : {
-        0 : "Blame the delays on poor performance and demand faster results.",
-        1 : "Offer incentives or rewards to motivate the team to meet the deadline.",
-        2 : "Take on more work yourself to help reduce the load on your team members.",
-        3 : "Delegate tasks to the most capable team members, ensuring the best-qualified people handle the most important work.",
-        4 : "Schedule one-on-one meetings with each team member to understand their concerns and offer support.",
-        5 : "Hold a team meeting to re-evaluate the timeline, discuss the roadblocks, and reassign tasks if necessary.",
-        },
-    'You are leading a project team that is facing delays due to poor communication and missed deadlines. As the team leader, how would you approach solving these issues?' : {
-        0 : " Assign new tasks to the most productive team members to ensure deadlines are met, even if it means overloading them temporarily.",
-        1 : "Delegate all communication responsibilities to one team member to streamline the process and avoid confusion.",
-        2 : "Implement a reward system to incentivize the team to meet deadlines and communicate more effectively.", 
-        3 : "Privately address team members who are underperforming, giving them feedback on areas for improvement.",
-        4 : "Establish clear, structured deadlines and follow-up procedures for all tasks to improve accountability.",
-        5 : "Hold a team meeting to identify the communication breakdowns and encourage team members to share their perspectives.",
-    },
-    'Which of the following actions demonstrate effective leadership in a team setting?' : {
-        0 : "You take sole responsibility for project failures and successes, without involving the team in accountability.",
-        1 : "You ensure that team conflicts are resolved quickly by imposing a solution, so the team can stay focused on tasks.",
-        2 : "You delegate tasks to team members based on their strengths, but you maintain full control over the decision-making process.",
-        3 : "You motivate team members by recognizing their efforts and achievements publicly.",
-        4 : "You encourage team members to take ownership of tasks, fostering their ability to work independently while providing guidance as needed.",
-        5 : "You actively listen to your team’s ideas and concerns, incorporating their feedback into project decisions.",
-    },
-    'You are leading a team that is facing a critical deadline, and two team members are in conflict over how to proceed. As the leader, how would you handle the situation?' : {
-        0 : "Make a decision on the best approach yourself and instruct the team to follow it without further discussion.",
-        1 : "Call an urgent team meeting to discuss the issue publicly and ask for the team's input. ",
-        2 : "Delegate responsibility for resolving the conflict to another senior team member who has more experience with such issues.",
-        3 : "Schedule a one-on-one meeting with each team member to understand their perspectives and feelings about the situation.",
-        4 : "Encourage both team members to suggest compromises and then help them evaluate the pros and cons of each approach.",
-        5 : "Facilitate a discussion between the two team members, helping them to communicate their viewpoints and find common ground.",
-    },
-    "As a team leader, you are managing a high-pressure project with a tight deadline. Some team members are struggling to keep up, and there's tension in the group. Which of the following actions would demonstrate strong leadership skills? " : {
-        0 : "Take full control of the project and personally handle the critical tasks to ensure quality and on-time delivery.",
-        1 : "Set strict guidelines and inform the team that failure to meet deadlines will have consequences, ensuring that everyone works harder.",
-        2 : "Provide emotional support to struggling team members by having one-on-one conversations to understand their challenges and motivate them.", 
-        3 : "Recognize team members’ efforts by celebrating small wins and giving praise where due to maintain morale.",
-        4 : "Delegate tasks based on each team member’s strengths, ensuring that the workload is balanced across the team.",
-        5 : "Encourage open communication by holding a team meeting where everyone can voice concerns and suggest improvements.",
-    },
-}
+import random
 
 coding_question = {
     "You are tasked with improving the performance of a function that processes a large dataset. The function is slow due to repeated operations and inefficient data structures. Which of the following strategies would help optimize the function?" :{
@@ -84,6 +43,49 @@ coding_question = {
     },
 }
 
+leadership_question = {
+    'You are leading a team working on a high-pressure project with tight deadlines. Your team members are facing challenges, and the project has fallen behind schedule. How would you handle the situation?' : {
+        0 : "Blame the delays on poor performance and demand faster results.",
+        1 : "Offer incentives or rewards to motivate the team to meet the deadline.",
+        2 : "Take on more work yourself to help reduce the load on your team members.",
+        3 : "Delegate tasks to the most capable team members, ensuring the best-qualified people handle the most important work.",
+        4 : "Schedule one-on-one meetings with each team member to understand their concerns and offer support.",
+        5 : "Hold a team meeting to re-evaluate the timeline, discuss the roadblocks, and reassign tasks if necessary.",
+        },
+    'You are leading a project team that is facing delays due to poor communication and missed deadlines. As the team leader, how would you approach solving these issues?' : {
+        0 : " Assign new tasks to the most productive team members to ensure deadlines are met, even if it means overloading them temporarily.",
+        1 : "Delegate all communication responsibilities to one team member to streamline the process and avoid confusion.",
+        2 : "Implement a reward system to incentivize the team to meet deadlines and communicate more effectively.", 
+        3 : "Privately address team members who are underperforming, giving them feedback on areas for improvement.",
+        4 : "Establish clear, structured deadlines and follow-up procedures for all tasks to improve accountability.",
+        5 : "Hold a team meeting to identify the communication breakdowns and encourage team members to share their perspectives.",
+    },
+    'Which of the following actions demonstrate effective leadership in a team setting?' : {
+        0 : "You take sole responsibility for project failures and successes, without involving the team in accountability.",
+        1 : "You ensure that team conflicts are resolved quickly by imposing a solution, so the team can stay focused on tasks.",
+        2 : "You delegate tasks to team members based on their strengths, but you maintain full control over the decision-making process.",
+        3 : "You motivate team members by recognizing their efforts and achievements publicly.",
+        4 : "You encourage team members to take ownership of tasks, fostering their ability to work independently while providing guidance as needed.",
+        5 : "You actively listen to your team's ideas and concerns, incorporating their feedback into project decisions.",
+    },
+    'You are leading a team that is facing a critical deadline, and two team members are in conflict over how to proceed. As the leader, how would you handle the situation?' : {
+        0 : "Make a decision on the best approach yourself and instruct the team to follow it without further discussion.",
+        1 : "Call an urgent team meeting to discuss the issue publicly and ask for the team's input. ",
+        2 : "Delegate responsibility for resolving the conflict to another senior team member who has more experience with such issues.",
+        3 : "Schedule a one-on-one meeting with each team member to understand their perspectives and feelings about the situation.",
+        4 : "Encourage both team members to suggest compromises and then help them evaluate the pros and cons of each approach.",
+        5 : "Facilitate a discussion between the two team members, helping them to communicate their viewpoints and find common ground.",
+    },
+    "As a team leader, you are managing a high-pressure project with a tight deadline. Some team members are struggling to keep up, and there's tension in the group. Which of the following actions would demonstrate strong leadership skills? " : {
+        0 : "Take full control of the project and personally handle the critical tasks to ensure quality and on-time delivery.",
+        1 : "Set strict guidelines and inform the team that failure to meet deadlines will have consequences, ensuring that everyone works harder.",
+        2 : "Provide emotional support to struggling team members by having one-on-one conversations to understand their challenges and motivate them.", 
+        3 : "Recognize team member's efforts by celebrating small wins and giving praise where due to maintain morale.",
+        4 : "Delegate tasks based on each team member's strengths, ensuring that the workload is balanced across the team.",
+        5 : "Encourage open communication by holding a team meeting where everyone can voice concerns and suggest improvements.",
+    },
+}
+
 communication_question = {
     "Imagine you need to explain a complex technical concept (such as APIs) to a non-technical audience. What strategies would you employ to ensure effective communication? " : {
         0 : "Focus on jargon and industry-specific terminology to establish credibility.",
@@ -125,5 +127,58 @@ communication_question = {
         4 : "Start with a real-world analogy that relates to the audience’s experiences.",
         5 : "Use visual aids like diagrams or charts to illustrate key points.",
     },
-    
 }
+
+presentation_question = {
+    "You are tasked with designing a presentation for a diverse audience about a new product. Which of the following strategies would you employ to ensure the presentation is effective?" : {
+        0 : "Include as much text as possible to ensure all details are covered.",
+        1 : "Structure the presentation with clear headings and bullet points for easy navigation.",
+        2 : "Use a consistent color scheme and font style throughout the slides.",
+        3 : "Incorporate multimedia elements like videos or animations to engage the audience.",
+        4 : "Use high-quality images and graphics to enhance visual appeal.",
+        5 : "Keep the slides clutter-free and limit each slide to one main idea.",
+    },
+    "You are tasked with designing a presentation for a stakeholder meeting to explain a new project. Which of the following design choices would you make to ensure the presentation is effective? " : {
+        0 : "Fill slides with detailed text to ensure all information is conveyed.",
+        1 : "Include transitions and animations on every slide to make it visually appealing.",
+        2 : "Create a summary slide at the end to recap the main points.",
+        3 : "Limit the number of slides to keep the presentation concise and focused.",
+        4 : "Use a consistent color scheme and font style throughout the slides.",
+        5 : "Incorporate high-quality visuals, such as images and graphs, to support key points.",
+    },
+    "You are tasked with designing a presentation for a key stakeholder meeting. Which strategies would you use to ensure the presentation is effective and engaging? " : {
+        0 : "Include as much text as possible to ensure all details are covered.",
+        1 : "Choose a variety of fonts and colors to make the slides visually appealing.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Practice delivering the presentation multiple times to ensure smooth delivery.",
+        4 : "Use a consistent and professional template throughout the presentation.",
+        5 : "Incorporate visuals such as images, charts, and infographics to support your points.",
+    },
+    "You are tasked with designing a presentation for an important stakeholder meeting. Which of the following design principles or strategies would you consider?" : {
+        0 : "Include as much text as possible to ensure all information is conveyed.",
+        1 : "Rely solely on animations and transitions to make the slides more engaging.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Use high-quality images and graphics to support your points.",
+        4 : "Use a consistent color scheme and font throughout the presentation.",
+        5 : "Structure the presentation with clear sections and transitions to guide the audience.",
+    },
+    "You are tasked with creating a presentation for a stakeholder meeting to explain a new product feature. What design elements and strategies would you incorporate to ensure the presentation is effective?" : {
+        0 : "Include as much text as possible on each slide to cover all details.",
+        1 : "Use animations and transitions on every slide to make it visually dynamic.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Use a consistent color scheme and font style throughout the presentation.",
+        4 : "Provide a clear summary slide at the end to recap key takeaways.",
+        5 : "Incorporate visuals such as images, infographics, or charts to support your points.",
+    },   
+}
+
+def randomQuestion(skill):
+    questionList = list(skill.keys())
+    random_question = random.choice(questionList)
+    questionDict = {
+        "question" : random_question,
+        "answer" : skill[random_question],
+    }
+    return questionDict
+
+print(randomQuestion(leadership_question))
