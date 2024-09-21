@@ -15,6 +15,8 @@ from django.utils.decorators import method_decorator
 import pandas as pd
 import os
 
+import questionaries 
+
 
 # from django.template import loader
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -285,14 +287,34 @@ class student_form_view(View):
             df.to_csv(filename, index=False)
         return redirect ('/')  
 
-class Student_Profile_view(View):
+class Student_Profile(View):
     def get(self,request):
-        user_id = request.user.id
+        user = request.user
         context = {
-            'user_id': user_id,
-            'page_name' : 'student-profile'
+            'user_id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email,
         }
-        return render(request,"student-profile.html",context)
+        return render(request, 'student_profile.html', context)
+
+    def post(self,request):
+        pass
+
+class Question_Form(View):
+    def get(self,request):  # Assuming the form ID is passed in the URL
+        text = questionaries.hello()
+        # intake = questionaries.randomQuestion()
+        questionList = ['apple is good','ball is good','cat is good','dog is good','elephant is good']
+        answerList = ['a','b','c','d','e']
+        context = {
+            'page_name':'question_form',
+            'text': text,
+            'questionList' : questionList,
+            'answerList':answerList
+        }
+        
+        return render(request, "questionform.html", context)
 
 class Team_Generator(View):
     def get(self,request):  # Assuming the form ID is passed in the URL
