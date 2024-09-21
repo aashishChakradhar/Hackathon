@@ -12,20 +12,25 @@
     <div class="student-profile">
         <div class="std-box">
             <div class="std-img">
-                <img src="" alt="">
+                <img src="../static/image/group.jpg" alt="">
             </div>
-            <div class="username">
-                {{username}}
-            </div>
-            <div class="std-name">
-                {{first_name}} {{last_name}}
-            </div>
-            <div class="std-email">
-                {{email}}
+            <div class="std-details">
+                <div class="std-name">
+                    {{first_name}} {{last_name}}
+                </div>
+                <div class="std-email">
+                    {{email}}
+                </div>
             </div>
         </div>
         <div class="std-graph">
-
+            <canvas id="RadarChart" width="" height=""></canvas>
+            <ul class="legend-list">
+                <li>Coding</li>
+                <li>LeaderShip</li>
+                <li>Communication Skill</li>
+                <li>Presentatino designing</li>
+            </ul>
         </div>
     </div>
 
