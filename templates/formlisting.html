@@ -3,12 +3,14 @@
 <div class="form-listing">
     <div class="form-wrapper">
         {% for form in form_id %}
-        <div class="columns">
-            <a href="/formlisting/{{ form.title }}">
-                <h3>{{ form.title }}</h3>
-                <p>{{ form.description }}</p>
-            </a>
-        </div>
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{ form.title }}</h5>
+                <p class="card-text">{{ form.description }}</p>
+                <a href="/formlisting/{{ form.title }}" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
         {% endfor %}
     </div>
 </div>
