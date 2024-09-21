@@ -290,11 +290,20 @@ class student_form_view(View):
 class Student_Profile(View):
     def get(self,request):
         user = request.user
+        coding  = list(Skillset.objects.filter(user=user).values('coding'))[-1]
+        leadership  = list(Skillset.objects.filter(user=user).values('leadership'))[-1]
+        communication  = list(Skillset.objects.filter(user=user).values('communication'))[-1]
+        presentation  = list(Skillset.objects.filter(user=user).values('presentation'))[-1]
+
         context = {
             'user_id': user.id,
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
+            'coding' : (coding['coding'] + 1)*16,
+            'leadership' : (leadership['leadership']+1)*16,
+            'communication' : (communication['communication']+1)*16,
+            'presentation' : (presentation['presentation']+1)*16,
         }
         return render(request, 'student_profile.html', context)
 
@@ -309,6 +318,7 @@ class Question_Form(View):
         context = {
             'page_name':'question_form',
             'random_questions' : random_questions,
+            'title' : title,
         }
         return render(request, "questionform.html", context)
     def post(self,request):

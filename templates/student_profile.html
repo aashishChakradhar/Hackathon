@@ -17,7 +17,7 @@
             
             <span class="useriddata d-none" data-userid="{{user_id}}"></span>
 
-            <div class="std-details">
+            <div class="std-details">   
                 <div class="std-name">
                     {{first_name}} {{last_name}}
                 </div>
@@ -29,30 +29,38 @@
         <div class="std-graph">
             <canvas id="RadarChart" width="" height=""></canvas>
             <ul class="legend-list">
-                <li>Coding</li>
-                <li>Team Leadership</li>
-                <li>Communication Skill</li>
-                <li>Presentation designing</li>
+                <li>Coding: <span>{{coding}}</span></li>
+                <li>Team Leadership: <span>{{leadership}}</span></li>
+                <li>Communication Skill: <span>{{communication}}</span></li>
+                <li>Presentation designing: <span>{{presentation}}</span></li>
             </ul>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
+            const currentUser = document.querySelector('.useriddata').getAttribute('data-userid');
+
+            console.log(currentUser);
+
             // Path to JSON file: "../data/data.json"
             fetch('/static/data/data.json') // Go up one directory from 'templates' to 'data'
                 .then(response => response.json()) // Parse the JSON data
                 .then(data => {
-                    // console.log(data[0])
-                    console.log(data); // Handle your data here
+                    data.forEach(element => {
+                        for (let keys in element){
+                            if (currentUser ==  element[keys]['Id'])
+                                console.log(element)
+                        }
+                        // console.log(element);
+                    });
+                    // console.log(data[0]) 
+                    // console.log(data); // Handle your data here
 
                 })
                 .catch(error => {
                     console.error('Error reading JSON file:', error);
                 });
-
-            // Example to log 'data-userid' attribute of an element with class 'useriddata'
-            console.log(document.querySelector('.useriddata').getAttribute('data-userid'));
         });
     </script>
 
