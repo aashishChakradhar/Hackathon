@@ -13,33 +13,23 @@ from group.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 import pandas as pd
+import os
+
 
 # from django.template import loader
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from django.contrib.auth.decorators import login_required
 # from django.urls import reverse_lazy
 
-
 class Index(View):
-    def get(self,request):
+    def get(self, request):
         context = {
             "page_name":"Home"
         }
-        try:
-            if request.user.is_anonymous:
-                return redirect("/login")
-            elif not request.user.is_staff and not request.user.is_superuser:
-                return render(request,"student_index.html",context)
-            elif not request.user.is_superuser and request.user.is_staff:
-                return render (request,"teacher_index.html",context)
-        except Exception as e:
-            pass
-            
-class Logout_view(View):
-    def get(self,request):
-        request.session.clear()
-        logout(request)
-        return redirect('/')
+        if request.user.is_anonymous:
+            return redirect("/login")
+        else:
+            return render (request,"index.html",context)
       
 class Login_view(View):
     def get(self,request):
@@ -66,7 +56,11 @@ class Login_view(View):
             request.session['alert_detail'] = "Please enter valid login credential."
             return redirect(request.path)
         
-
+class Logout_view(View):
+    def get(self,request):
+        request.session.clear()
+        logout(request)
+        return redirect('/')
 
 class Signup_View (View):
     def get(self,request):
@@ -222,6 +216,9 @@ class formdetailview(View):
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
+            email = request.user.email if request.user.email else request.user.username
+            name = request.user.username
+
             title = request.POST.get('form_id')
             communication = request.POST.get('communication')
             presentation = request.POST.get('presentation')
@@ -235,19 +232,27 @@ class formdetailview(View):
                     presentation=presentation,
                     coding=coding,
                     leadership=leadership,
-                ).save()
+                )
                 if student_detail:
-                    df = pd.DataFrame.from_dict([student_detail.as_dict()])
-                    name = f"{title}.csv"
-                    df.to_csv(f"Data/{name}", index=False)
-                    return redirect('/')
+                    df = pd.DataFrame.from_dict([{
+                        "user_id": student_detail.user_id,
+                        "name" : name,
+                        "email" : email,
+                        "coding": student_detail.coding,
+                        "leadership": student_detail.leadership,
+                        "communication": student_detail.communication,
+                        "presentation": student_detail.presentation,
+                    }])
+                    name = f"data/data.csv"
+                    df.to_csv(name, mode='a', header=not os.path.exists(name), index=False, lineterminator='\n')
+
+                student_detail.save()
+                return redirect('/')
             except Exception as e:
                 print(e)
         return redirect ('/')  
 
 
-    
-    
 
 class student_form_view(View):
     def get(self,request):
