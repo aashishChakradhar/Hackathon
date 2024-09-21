@@ -147,9 +147,10 @@ class StudentFormListing(View):
             'page_name': 'student form',
             'form_id': form_id
         }
-    return render(request, "formlisting.html", context)
+        return render(request, "formlisting.html", context)
         
     def post(self,request):
+        pass
 
 class student_form_view(View):
     
