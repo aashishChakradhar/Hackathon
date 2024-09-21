@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect,HttpResponse
+from django.template import loader
 from django.views import View
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import login, authenticate, logout
@@ -149,6 +150,17 @@ class StudentFormListing(View):
         
     def post(self,request):
         pass
+
+class formdetailview(View):
+    def get(self, request, title):
+        formsingle = get_object_or_404(FormDetail, title=title)
+        template = loader.get_template('student-form.html')
+        context = {
+            'formsingle': formsingle,
+        }
+        return HttpResponse(template.render(context, request))
+    
+    
 
 class student_form_view(View):
     def get(self,request):
