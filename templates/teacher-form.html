@@ -3,12 +3,15 @@
         <div class="container">
             <div class="skill-selection">
                 <h2>Skill Selection for the project</h2>
-                <form name="userForm" onsubmit="return validateForm(event)">
-
+                <form action = '/teacher-form' method = "POST">
+                    {% csrf_token %}
                     <!-- Project Title Input -->
                     <label for="project-title">Project Title:</label>
                     <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required><br /><br />
                     
+                    <label for="project-description">Project Description:</label>
+                    <input type="text" id="project-description" name="project-description" placeholder="Enter project description" required><br /><br />
+
                     <div class="checkboxes-section">
                         <label for="coding">Coding :</label>
                         <input type="checkbox" id="coding" name="coding"><br /><br />
@@ -24,8 +27,14 @@
                     </div>
 
                     <!-- Submit Button -->
-                    <input type="button" id="submit" name="submit" value="Submit">
+                    <input type="submit" id="submit" name="submit" value="Submit">
                 </form>
             </div>
         </div>
+        <script>
+            document.querySelector('form').addEventListener('submit', (e)=>{
+                e.preventDefault();
+                console.log(document.querySelector('input[name="coding"]').value)
+            })
+        </script>
 {% endblock body %}
