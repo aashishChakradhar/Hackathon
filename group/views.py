@@ -106,17 +106,17 @@ class teacher_form_view(View):
     #         "page_name":"teacher signup"
     #     }
     #     return render(request,'teacher.html',context)  
-    def get(self,request):
-        alert_title = request.session.get('alert_title',False)
-        alert_detail = request.session.get('alert_detail',False)
-        if(alert_title):del(request.session['alert_title'])
-        if(alert_detail):del(request.session['alert_detail'])
-        context = {
-            'alert_title':alert_title,
-            'alert_detail':alert_detail,
-            'page_name': 'Signup'
-        }
-        return render(request,"signup.html",context)
+    # def get(self,request):
+    #     alert_title = request.session.get('alert_title',False)
+    #     alert_detail = request.session.get('alert_detail',False)
+    #     if(alert_title):del(request.session['alert_title'])
+    #     if(alert_detail):del(request.session['alert_detail'])
+    #     context = {
+    #         'alert_title':alert_title,
+    #         'alert_detail':alert_detail,
+    #         'page_name': 'Signup'
+    #     }
+    #     return render(request,"signup.html",context)
         
     def post(self,request):
         if request.method == 'POST':
@@ -178,30 +178,31 @@ class Student_Profile_view(View):
 
 class Team_generator(View):
     def get(self,request):  # Assuming the form ID is passed in the URL
-        form_id = 0
+        form_id = request.get.POST('username')
         context = {}
-
+        try:
+            skillset = Skillset.objects.get(form_detail = form_id)
         # Retrieve all users with the same form ID (replace with your logic for getting form_id)
-        users_with_same_form = FormDetail.objects.filter(pk=form_id).values_list('user')  # Optimized query
+        # users_with_same_form = FormDetail.objects.filter(pk=form_id).values_list('user')  # Optimized query
 
-        if users_with_same_form:
-            user_skillsets = []  # List to store extracted data
-            for user_id in users_with_same_form:
-                try:
-                    skillset = Skillset.objects.get(user=user_id[0], form_detail=form_id)  # Filter by both user and form ID
-                    user_skillsets.append({
-                        'user_id': user_id[0],
-                        'coding': skillset.coding,
-                        'leadership': skillset.leadership,
-                        'communication': skillset.communication,
-                        'presentation': skillset.presentation,
-                    })
-                except Skillset.DoesNotExist:
-                    pass  # Handle case where a user doesn't have a Skillset object for this form
+        # if users_with_same_form:
+        #     user_skillsets = []  # List to store extracted data
+        #     for user_id in users_with_same_form:
+        #         try:
+        #             skillset = Skillset.objects.get(user=user_id[0], form_detail=form_id)  # Filter by both user and form ID
+        #             user_skillsets.append({
+        #                 'user_id': user_id[0],
+        #                 'coding': skillset.coding,
+        #                 'leadership': skillset.leadership,
+        #                 'communication': skillset.communication,
+        #                 'presentation': skillset.presentation,
+        #             })
+        #         except Skillset.DoesNotExist:
+        #             pass  # Handle case where a user doesn't have a Skillset object for this form
 
-            context['user_skillsets'] = user_skillsets
-        else:
-            context['message'] = 'No users found with this form ID.'  # Informational message
+        #     context['user_skillsets'] = user_skillsets
+        # else:
+        #     context['message'] = 'No users found with this form ID.'  # Informational message
 
         return render(request, "rough.html", context)
 
