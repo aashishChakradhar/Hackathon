@@ -2,3 +2,5 @@ myenv
 venv
 env/
 __pycache__/
+rough
+db.sqlite3
