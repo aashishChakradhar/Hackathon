@@ -17,4 +17,6 @@ urlpatterns = [
     path('student-form', views.student_form_view.as_view(), name='student-form'),
 
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
+
+    path('team-generator', views.Team_generator.as_view(), name='team-generator'),
 ]
