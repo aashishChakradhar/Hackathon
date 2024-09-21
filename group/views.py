@@ -130,6 +130,27 @@ class teacher_form_view(View):
         
         return redirect ('/')  
     
+class StudentFormListing(View):
+    def get(self, request):
+        alert_title = request.session.get('alert_title', False)
+        alert_detail = request.session.get('alert_detail', False)
+        if alert_title:
+            del request.session['alert_title']
+        if alert_detail:
+            del request.session['alert_detail']
+
+        form_id = FormDetail.objects.all()
+
+        context = {
+            'alert_title': alert_title,
+            'alert_detail': alert_detail,
+            'page_name': 'student form',
+            'form_id': form_id
+        }
+    return render(request, "formlisting.html", context)
+        
+    def post(self,request):
+
 class student_form_view(View):
     
     def get(self,request):
@@ -137,7 +158,7 @@ class student_form_view(View):
         alert_detail = request.session.get('alert_detail',False)
         if(alert_title):del(request.session['alert_title'])
         if(alert_detail):del(request.session['alert_detail'])
-
+        form_id = FormDetail.request.object()
         context = {
             'alert_title':alert_title,
             'alert_detail':alert_detail,
