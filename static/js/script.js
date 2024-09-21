@@ -94,3 +94,35 @@ document.getElementById('teamDivider').addEventListener('click', () => {
     processResponse();
 })
 
+
+
+const ctx = document.getElementById('radarChart').getContext('2d');
+
+const data = {
+labels: ['Coding', 'Leadership', 'Communication Skill', 'Presentation designing'],
+datasets: [{
+    label: 'Student Skill Levels',
+    data: [20, 80, 15, 12],
+    fill: true,
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgb(54, 162, 235)',
+    pointBackgroundColor: 'rgb(54, 162, 235)',
+    pointBorderColor: '#fff',
+    pointHoverBackgroundColor: '#fff',
+    pointHoverBorderColor: 'rgb(54, 162, 235)'
+}]
+};
+
+const config = {
+type: 'radar',
+data: data,
+options: {
+    elements: {
+    line: {
+        borderWidth: 3
+    }
+    }
+}
+};
+
+const radarChart = new Chart(ctx, config);
