@@ -5,23 +5,23 @@
 {% block body %}
 This is Teacher HomePage <br>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Create Project Form</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-      <a href="{% url 'group:teacher-form' %}" class="btn btn-primary">Create Form</a>
-    </div>
-  </div>
+<div class="card" >
+    <a href="{% url 'group:team-generator' %}">
+        <img src="static/image/search.jpg" alt="Logout icon" width="250" height="250">
+    </a>
+</div>
 
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Logout</h5>
-      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-      <a href="{% url 'group:logout' %}" class="btn btn-primary">Logout</a>
-    </div>
-  </div>
+<div class="card" >
+    <a href="{% url 'group:teacher-form' %}">
+        <img src="static/image/form.jpg" alt="form icon" width="250" height="250">
+    </a>
+</div>
+
+<div class="card" >
+    <a href="{% url 'group:logout' %}">
+        <img src="static/image/logout.jpg" alt="Logout icon" width="250" height="250">
+    </a>
+</div>
 
 {% endblock body %}
 
