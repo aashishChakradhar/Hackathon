@@ -5,6 +5,7 @@
 
 {% block body %}
 
+<div class="form-wrapper">
 <div class="form">
     {% if alert_title %}
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -106,14 +107,15 @@
         </label>
       </div>
 
-      <div class="d-grid gap-2 col-6 mx-auto">
+      <div class="mt-5 col-6 mx-auto">
         <button type="submit" class="button btn btn-primary form-button">
           Signup
         </button>
       </div>
-      <div class="d-grid gap-2 col-6 mx-auto my-3">
+      <div class="col-6 mx-auto my-3 text-center">
         <a href="{% url 'group:login' %}">I already have an account</a>
       </div>
     </form>
   </div>
+</div>
 {% endblock body %}
