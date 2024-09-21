@@ -161,10 +161,6 @@ class teacher_form_view(View): #creates form
             'page_name':'teacher-form'
         }
         return render(request,"teacher-form.html",context)
-<<<<<<< HEAD
-        
-=======
->>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
