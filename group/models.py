@@ -27,7 +27,7 @@ class FormDetail(BaseModel):
 
 class Skillset(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to User model
-    # title = models.CharField( max_length=50)  # Link to FormDetail
+    title = models.CharField( max_length=50,default = 'unknown')  # Link to FormDetail
     coding = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     leadership = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     communication = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
