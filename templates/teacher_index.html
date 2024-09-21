@@ -1,6 +1,27 @@
 {% extends "base.html" %}
-
+{% block title %}
+{{page_name}}
+{% endblock title %}
 {% block body %}
-This is Teacher HomePage
+This is Teacher HomePage <br>
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Create Project Form</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+      <a href="{% url 'group:teacher-form' %}" class="btn btn-primary">Create Form</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Logout</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+      <a href="{% url 'group:logout' %}" class="btn btn-primary">Logout</a>
+    </div>
+  </div>
+
 {% endblock body %}
 
