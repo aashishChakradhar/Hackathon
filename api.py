@@ -37,45 +37,47 @@ def predict():
         # Create separate dataframes for each cluster
         dataframes = {f'data_{x}': data[data['cluster'] == x] for x in data['cluster'].unique()}
 
-        # Find the smallest dataset
-        smallest_dataset_name = min(dataframes, key=lambda k: len(dataframes[k]))
-        minvalue = len(dataframes[smallest_dataset_name])
+        # Assuming you have a list of DataFrames
+        dataframes = [data[data['cluster'] == x] for x in data['cluster'].unique()]# List of your DataFrames
 
-        # Group creation
-        group = {}
-        for y in range(minvalue):
-            singlegroup = []
-            for x in dataframes.keys():
-                if len(dataframes[x]) > 0:
-                    item = random.randint(0, len(dataframes[x]) - 1)
-                    
-                    selected_item = dataframes[x].iloc[item]
-                    
-                    # Assign a random skill from the skills_data list
-                    # max_value = max([selected_item[skill] for skill in skillset])
+        print(dataframes)
 
-                    # mainskill = ''
-                    # for skill in skillset:
-                    #     if max_value == int(selected_item[skill]):
-                    #         mainskill = skill
-                    #         break
+        # Initialize an empty list to store the groups
+        groups = []
 
-                    # # Set the skill in the selected item
-                    # selected_item['skills'] = mainskill
-                    
-                    # # Check if the mainskill is not 'Presentation designing'
-                    # if mainskill != 'Presentation designing':
-                    #     singlegroup.append(selected_item.to_dict())  # Convert to dict
-                    #     dataframes[x] = dataframes[x].drop(dataframes[x].index[item]).reset_index(drop=True)
+        # Create a list of iterators for each DataFrame
+        dataframe_iters = [df.iterrows() for df in dataframes]
+        while True:
+            group = []
+            
+            # Continue to fill the group until it has 4 elements
+            while len(group) < 4:
+                all_empty = True  # To track if all iterators are exhausted
+                
+                for _, dataframe_iter in enumerate(dataframe_iters):
+                    try:
+                        # Try to get the next element from the current DataFrame iterator
+                        index, element = next(dataframe_iter)
+                        group.append(element)
+                        all_empty = False  # Mark as not empty if at least one DataFrame has data
+                        if len(group) == 4:
+                            break  # Stop once we have 4 elements
+                    except StopIteration:
+                        # This DataFrame is exhausted, continue to the next
+                        continue
+                
+                if all_empty:
+                    # If all DataFrames are exhausted and no more elements are found, stop
+                    break
 
-                    singlegroup.append(selected_item)
-                    dataframes[x] = dataframes[x].drop(dataframes[x].index[item])
-                else:
-                    singlegroup.append(None)  # Use None instead of 0 for clarity
+            # Add the group to the list of groups if it has 4 elements
+            if len(group) == 4:
+                groups.append(group)
+            else:
+                # Break if we can't form any more full groups of 4
+                break
 
-            group[y] = singlegroup
-
-        return group
+        return groups
 
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Data file not found")
