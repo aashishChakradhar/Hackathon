@@ -172,21 +172,9 @@ presentation_question = {
     },   
 }
 
-    
-
-
-
-def create_random_question_dict(dictionaries):
-    """Creates a new dictionary containing one random element from each dictionary.
-
-    Args:
-        dictionaries (list): A list of dictionaries.
-
-    Returns:
-        dict: A new dictionary containing one random element from each dictionary.
-    """
-
+def create_random_question_dict():
     new_dict = {}
+    dictionaries = [coding_question, leadership_question, communication_question, presentation_question]
     for dictionary in dictionaries:
         random_key = random.choice(list(dictionary.keys()))
         new_dict[random_key] = dictionary[random_key]
@@ -194,7 +182,7 @@ def create_random_question_dict(dictionaries):
 
 # Example usage:
 dictionaries = [coding_question, leadership_question, communication_question, presentation_question]
-random_questions = create_random_question_dict(dictionaries)
+random_questions = create_random_question_dict()
 print(random_questions)
 
 
