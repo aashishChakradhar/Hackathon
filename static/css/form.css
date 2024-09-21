@@ -592,3 +592,98 @@ label{
     padding: 0;
 }
 
+.question-wrapper h2{
+    text-transform: capitalize;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.question-wrapper{
+    margin:  60px;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background-color: #ffffff;
+}
+.question-box{
+    margin-bottom: 30px;
+}
+.question-box h3{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.question-box label{
+    cursor: pointer;
+}
+.form-check{
+    margin-bottom: 5px;
+    padding-left: 40px;
+}
+
+.student-profile{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.std-img img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.std-box{
+    display: grid;
+    gap: 5px;
+    background-color: #ffffff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    border-radius: 15px;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 50px;
+}
+.std-img{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.std-name{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.std-details{
+    grid-column: 2/3;
+}
+
+.std-graph{
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    align-items: center;
+    gap: 20px;
+    border-radius: 16px;
+}
+.std-graph canvas{
+    width: 100%;
+    height: auto;
+}
+.legend-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin: 0 auto;
+}
+.legend-list li{
+    padding: 5px 25px 5px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.legend-list li + li{
+    border-top: none;
+}

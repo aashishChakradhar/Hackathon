@@ -3,9 +3,35 @@
     {{page_name}}
 {% endblock title %}
 {% block body %}
-    profile page <br>
+    <!-- profile page <br>
     User Id: {{user_id}} <br>
     First Name: {{first_name}} <br>
     Last Name:  {{last_name}} <br>
-    Email: {{email}} <br>
-{% endblock body %} 
+    Email: {{email}} <br> -->
+
+    <div class="student-profile">
+        <div class="std-box">
+            <div class="std-img">
+                <img src="../static/image/group.jpg" alt="">
+            </div>
+            <div class="std-details">
+                <div class="std-name">
+                    {{first_name}} {{last_name}}
+                </div>
+                <div class="std-email">
+                    {{email}}
+                </div>
+            </div>
+        </div>
+        <div class="std-graph">
+            <canvas id="RadarChart" width="" height=""></canvas>
+            <ul class="legend-list">
+                <li>Coding</li>
+                <li>Team Leadership</li>
+                <li>Communication Skill</li>
+                <li>Presentation designing</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock body %}

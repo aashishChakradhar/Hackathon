@@ -155,7 +155,7 @@ class Signup_View (View):
                 return redirect(request.path)
         return render(request, "signup.html")
 
-class teacher_form_view(View):
+class teacher_form_view(View): #creates form
     def get(self,request):
         context = {
             'page_name':'teacher-form'
@@ -187,7 +187,7 @@ class teacher_form_view(View):
         
         return redirect ('/')  
     
-class StudentFormListing(View):
+class StudentFormListing(View): #list open form
     def get(self, request):
         alert_title = request.session.get('alert_title', False)
         alert_detail = request.session.get('alert_detail', False)
@@ -207,7 +207,7 @@ class StudentFormListing(View):
     def post(self,request):
         pass
 
-class formdetailview(View):
+'''class formdetailview(View):
     def get(self, request, title):
         formsingle = get_object_or_404(FormDetail, title=title)
         template = loader.get_template('student-form.html')
@@ -254,7 +254,7 @@ class formdetailview(View):
                 return redirect('/')
             except Exception as e:
                 print(e)
-        return redirect ('/')  
+        return redirect ('/')  '''
 
 class student_form_view(View):
     def get(self,request):
@@ -306,18 +306,32 @@ class Student_Profile(View):
         pass
 
 class Question_Form(View):
-    def get(self,request):  # Assuming the form ID is passed in the URL
-        
+    def get(self,request,title):  # Assuming the form ID is passed in the URL
         random_questions = questionaries.create_random_question_dict()
-        
+
 
         context = {
             'page_name':'question_form',
-            'text': text,
             'random_questions' : random_questions,
         }
-        
         return render(request, "questionform.html", context)
+    def post(self,request):
+        if request.method == 'POST':
+            user = request.user
+            title = request.POST.get('title')
+            coding_question = request.POST.get('question_0')
+            leadership_question = request.POST.get('question_1')
+            communication_question = request.POST.get('question_2')  
+            presentation_question = request.POST.get('question_3')  
+            skillset = Skillset.objects.create(
+                user = user,
+                title = title,
+                coding = coding_question,
+                leadership = leadership_question,
+                communication = communication_question,
+                presentation = presentation_question,
+            ).save()
+        return redirect( "/")
 
 class Team_Generator(View):
     def get(self,request):  # Assuming the form ID is passed in the URL

@@ -14,14 +14,15 @@ urlpatterns = [
     path('signup', views.Signup_View.as_view(), name='signup'),
     path('teacher-form', views.teacher_form_view.as_view(), name='teacher-form'), #create form by teacher
     path('formlisting', views.StudentFormListing.as_view(), name='formlisting'), #show list of available form
-    path('formlisting/<str:title>', views.formdetailview.as_view(), name='formdetailpage'),
-    
+   path('formlisting/<str:title>', views.Question_Form.as_view(), name='formdetailpage'),
+    # path('student-skill', views.Question_Form.as_view(), name='student-skill'),
     path('team-generator', views.Team_Generator.as_view(), name='team-generator'),
 
     #working
     path('question-form', views.Question_Form.as_view(), name='question-form'),
 
     path('student-profile', views.Student_Profile.as_view(), name='student-profile'),
+    
     #review left
 
 
