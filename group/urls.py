@@ -16,12 +16,13 @@ urlpatterns = [
     path('formlisting', views.StudentFormListing.as_view(), name='formlisting'), #show list of available form
     path('formlisting/<str:title>', views.formdetailview.as_view(), name='formdetailpage'),
     
+    path('team-generator', views.Team_Generator.as_view(), name='team-generator'),
     #review left
     path('student-form', views.formdetailview.as_view(), name='student-form'),
 
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
 
-    path('team-generator', views.Team_generator.as_view(), name='team-generator'),
+    # path('team-generator', views.Team_generator.as_view(), name='team-generator'),
 
     # path('student-index', views.student_index.as_view(), name='student-index'),//student homepage
 ]
