@@ -127,7 +127,6 @@ class teacher_form_view(View):
                 coding = coding,
                 leadership = leadership,
             ).save() 
-            return HttpResponse()
         
         return redirect ('/')  
     
@@ -159,7 +158,26 @@ class formdetailview(View):
             'formsingle': formsingle,
         }
         return HttpResponse(template.render(context, request))
-    
+
+    def post(self,request):
+        if request.method == 'POST':
+            user_id = request.user.id
+            title = request.POST.get('form_id')
+            communication = request.POST.get('communication')
+            presentation = request.POST.get('presentation')
+            coding = request.POST.get('coding')
+            leadership = request.POST.get('leadership')
+            student_detail = Skillset.objects.create(
+                user_id = user_id,
+                title = title,
+                communication=communication,
+                presentation = presentation,
+                coding = coding,
+                leadership = leadership,
+            ).save()
+        return redirect ('/')  
+
+
     
 
 class student_form_view(View):
