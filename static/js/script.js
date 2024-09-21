@@ -14,7 +14,7 @@ async function processResponse() {
         }
         const data = await response.json();
         return {data}; 
-    }
+    } 
 
     groupedData = await get_response();
 
