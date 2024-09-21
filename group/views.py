@@ -13,6 +13,8 @@ from group.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 import pandas as pd
+import os
+
 
 # from django.template import loader
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -214,6 +216,9 @@ class formdetailview(View):
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
+            email = request.user.email if request.user.email else request.user.username
+            name = request.user.username
+
             title = request.POST.get('form_id')
             communication = request.POST.get('communication')
             presentation = request.POST.get('presentation')
@@ -227,18 +232,27 @@ class formdetailview(View):
                     presentation=presentation,
                     coding=coding,
                     leadership=leadership,
-                ).save()
+                )
                 if student_detail:
-                    df = pd.DataFrame.from_dict([student_detail.as_dict()])
-                    name = f"{title}.csv"
-                    df.to_csv(f"Data/{name}", index=False)
-                    return redirect('/')
+                    df = pd.DataFrame.from_dict([{
+                        "user_id": student_detail.user_id,
+                        "name" : name,
+                        "email" : email,
+                        "coding": student_detail.coding,
+                        "leadership": student_detail.leadership,
+                        "communication": student_detail.communication,
+                        "presentation": student_detail.presentation,
+                    }])
+                    name = f"data/data.csv"
+                    df.to_csv(name, mode='a', header=not os.path.exists(name), index=False, lineterminator='\n')
+
+                student_detail.save()
+                return redirect('/')
             except Exception as e:
                 print(e)
         return redirect ('/')  
 
 
-    
 
 class student_form_view(View):
     def get(self,request):
