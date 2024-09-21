@@ -125,5 +125,48 @@ communication_question = {
         4 : "Start with a real-world analogy that relates to the audience’s experiences.",
         5 : "Use visual aids like diagrams or charts to illustrate key points.",
     },
+}
+
+presentation_question = {
+    "You are tasked with designing a presentation for a diverse audience about a new product. Which of the following strategies would you employ to ensure the presentation is effective?" : {
+        0 : "Include as much text as possible to ensure all details are covered.",
+        1 : "Structure the presentation with clear headings and bullet points for easy navigation.",
+        2 : "Use a consistent color scheme and font style throughout the slides.",
+        3 : "Incorporate multimedia elements like videos or animations to engage the audience.",
+        4 : "Use high-quality images and graphics to enhance visual appeal.",
+        5 : "Keep the slides clutter-free and limit each slide to one main idea.",
+    },
+    "You are tasked with designing a presentation for a stakeholder meeting to explain a new project. Which of the following design choices would you make to ensure the presentation is effective? " : {
+        0 : "Fill slides with detailed text to ensure all information is conveyed.",
+        1 : "Include transitions and animations on every slide to make it visually appealing.",
+        2 : "Create a summary slide at the end to recap the main points.",
+        3 : "Limit the number of slides to keep the presentation concise and focused.",
+        4 : "Use a consistent color scheme and font style throughout the slides.",
+        5 : "Incorporate high-quality visuals, such as images and graphs, to support key points.",
+    },
+    "You are tasked with designing a presentation for a key stakeholder meeting. Which strategies would you use to ensure the presentation is effective and engaging? " : {
+        0 : "Include as much text as possible to ensure all details are covered.",
+        1 : "Choose a variety of fonts and colors to make the slides visually appealing.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Practice delivering the presentation multiple times to ensure smooth delivery.",
+        4 : "Use a consistent and professional template throughout the presentation.",
+        5 : "Incorporate visuals such as images, charts, and infographics to support your points.",
+    },
+    "" : {
+        0 : "",
+        1 : "",
+        2 : "",
+        3 : "",
+        4 : "",
+        5 : "",
+    },
+    "" : {
+        0 : "",
+        1 : "",
+        2 : "",
+        3 : "",
+        4 : "",
+        5 : "",
+    },
     
 }
