@@ -220,6 +220,10 @@ body {
     margin-right: 0.5rem;
     accent-color: var(--accent-color); /* Optional: customize the radio button color */
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
 body, html {
     height: 100%;
     margin: 0;
@@ -305,13 +309,21 @@ body, html {
 
 .skill-selection input[type="button"] {
     display: block;
+<<<<<<< HEAD
+    width: auto;
+=======
     width: 100%;
+>>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
     max-width: 300px;
     margin: 20px auto;
     padding: 12px;
     background-color: #007bff;
     color: white;
     font-size: 16px;
+<<<<<<< HEAD
+    font-weight: bold;
+=======
+>>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -409,7 +421,11 @@ body, html {
 
 /* Display value below each slider */
 .slider-value {
+<<<<<<< HEAD
+    font-size: 0.6em;
+=======
     font-size: 1.2em;
+>>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
     font-weight: bold;
     color: var(--color-two);
     margin-bottom: var(--spacing-medium);
@@ -424,7 +440,11 @@ body, html {
     border: none;
     border-radius: 5px;
     padding: var(--spacing-small);
+<<<<<<< HEAD
+    width: auto;
+=======
     width: 100%;
+>>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
