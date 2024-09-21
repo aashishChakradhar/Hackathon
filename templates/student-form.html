@@ -5,7 +5,7 @@
     <div class="skill-level">
         <form action="/student-form" method="POST">
             {% csrf_token %}
-            <input type="hidden" name = 'form_id' value = {{form_detail}}>
+            <input type="hidden" name = 'form_id' value = {{form_id}}>
             <h2>Rate yourself</h2>
             <label for="coding">Coding : 0</label>
             <input type="range" name="coding" min="0" max="100" value="50" oninput="updateValue('valueDisplay1', this.value)">
@@ -36,7 +36,7 @@
     </div>
     </div>
     <script>
-        // Function to update the displayed value for each slider
+        {% comment %} // Function to update the displayed value for each slider
         function updateValue(displayId, val) {
             document.getElementById(displayId).innerText = val;
         }
@@ -44,7 +44,7 @@
         document.getElementById('studentForm').addEventListener('submit', (e)=>{
             e.preventDefault();
             console.log(document.querySelector('input[name="coding"]').value)
-        })
+        }) {% endcomment %}
     </script>
 
 {% endblock body%}

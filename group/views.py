@@ -138,9 +138,7 @@ class StudentFormListing(View):
             del request.session['alert_title']
         if alert_detail:
             del request.session['alert_detail']
-
         form_id = FormDetail.objects.all()
-
         context = {
             'alert_title': alert_title,
             'alert_detail': alert_detail,
@@ -152,7 +150,6 @@ class StudentFormListing(View):
     def post(self,request):
 
 class student_form_view(View):
-    
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
         alert_detail = request.session.get('alert_detail',False)
