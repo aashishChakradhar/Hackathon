@@ -43,6 +43,7 @@
             fetch('/static/data/data.json') // Go up one directory from 'templates' to 'data'
                 .then(response => response.json()) // Parse the JSON data
                 .then(data => {
+                    // console.log(data[0])
                     console.log(data); // Handle your data here
 
                 })
