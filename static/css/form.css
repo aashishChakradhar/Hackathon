@@ -400,7 +400,7 @@ body, html {
 
 /* Display value below each slider */
 .slider-value {
-    font-size: 1.2em;
+    font-size: 0.6em;
     font-weight: bold;
     color: var(--color-two);
     margin-bottom: var(--spacing-medium);
