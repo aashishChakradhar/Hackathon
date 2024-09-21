@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect,HttpResponse
+from django.template import loader
 from django.views import View
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import login, authenticate, logout
@@ -126,7 +127,6 @@ class teacher_form_view(View):
                 coding = coding,
                 leadership = leadership,
             ).save() 
-            return HttpResponse()
         
         return redirect ('/')  
     
@@ -138,9 +138,7 @@ class StudentFormListing(View):
             del request.session['alert_title']
         if alert_detail:
             del request.session['alert_detail']
-
         form_id = FormDetail.objects.all()
-
         context = {
             'alert_title': alert_title,
             'alert_detail': alert_detail,
@@ -152,8 +150,37 @@ class StudentFormListing(View):
     def post(self,request):
         pass
 
-class student_form_view(View):
+class formdetailview(View):
+    def get(self, request, title):
+        formsingle = get_object_or_404(FormDetail, title=title)
+        template = loader.get_template('student-form.html')
+        context = {
+            'formsingle': formsingle,
+        }
+        return HttpResponse(template.render(context, request))
+
+    def post(self,request):
+        if request.method == 'POST':
+            user_id = request.user.id
+            title = request.POST.get('form_id')
+            communication = request.POST.get('communication')
+            presentation = request.POST.get('presentation')
+            coding = request.POST.get('coding')
+            leadership = request.POST.get('leadership')
+            student_detail = Skillset.objects.create(
+                user_id = user_id,
+                title = title,
+                communication=communication,
+                presentation = presentation,
+                coding = coding,
+                leadership = leadership,
+            ).save()
+        return redirect ('/')  
+
+
     
+
+class student_form_view(View):
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
         alert_detail = request.session.get('alert_detail',False)

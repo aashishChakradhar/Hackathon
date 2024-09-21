@@ -13,10 +13,11 @@ urlpatterns = [
     path('logout', views.Logout_view.as_view(), name='logout'),
     path('signup', views.Signup_View.as_view(), name='signup'),
     path('teacher-form', views.teacher_form_view.as_view(), name='teacher-form'),
+    path('formlisting', views.StudentFormListing.as_view(), name='Form Listing'),
+    path('formlisting/<str:title>', views.formdetailview.as_view(), name='Form detail page'),
     
     #review left
-    path('formlisting', views.StudentFormListing.as_view(), name='Form Listing'),
-    path('student-form', views.student_form_view.as_view(), name='student-form'),
+    path('student-form', views.formdetailview.as_view(), name='student-form'),
 
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
 
