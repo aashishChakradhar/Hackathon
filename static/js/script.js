@@ -1,3 +1,31 @@
+async function saveJsonFile(data) {
+    const jsonData = JSON.stringify(data, null, 2);
+  
+    try {
+      // Prompt user to choose where to save the file
+      const fileHandle = await window.showSaveFilePicker({
+        suggestedName: 'data.json',
+        types: [{
+          description: 'JSON file',
+          accept: { 'application/json': ['.json'] }
+        }]
+      });
+  
+      // Create a writable stream
+      const writableStream = await fileHandle.createWritable();
+  
+      // Write the JSON data to the file
+      await writableStream.write(jsonData);
+  
+      // Close the file stream to save changes
+      await writableStream.close();
+  
+      console.log("File saved successfully!");
+    } catch (err) {
+      console.error("Error saving the file:", err);
+    }
+  }
+
 document.getElementById('teamDivider').addEventListener('click', () => {
     async function processResponse() {
         async function get_response() {
@@ -18,6 +46,8 @@ document.getElementById('teamDivider').addEventListener('click', () => {
         } 
     
         groupedData = await get_response();
+
+        saveJsonFile(groupedData.data);
     
         for(let i=0; i<Object.keys(groupedData.data).length; i++){
     
@@ -53,12 +83,13 @@ document.getElementById('teamDivider').addEventListener('click', () => {
                 div.appendChild(name);
                 div.appendChild(email);
                 div.appendChild(skill);
-    
+
                 parentDiv.appendChild(div);
             }
             gparentDiv.appendChild(parentDiv);
             document.getElementById('itemdisplay').appendChild(gparentDiv);
         }
+
     }
     processResponse();
 })

@@ -3,9 +3,30 @@
     {{page_name}}
 {% endblock title %}
 {% block body %}
-    profile page <br>
+    <!-- profile page <br>
     User Id: {{user_id}} <br>
     First Name: {{first_name}} <br>
     Last Name:  {{last_name}} <br>
-    Email: {{email}} <br>
-{% endblock body %} 
+    Email: {{email}} <br> -->
+
+    <div class="student-profile">
+        <div class="std-box">
+            <div class="std-img">
+                <img src="" alt="">
+            </div>
+            <div class="username">
+                {{username}}
+            </div>
+            <div class="std-name">
+                {{first_name}} {{last_name}}
+            </div>
+            <div class="std-email">
+                {{email}}
+            </div>
+        </div>
+        <div class="std-graph">
+
+        </div>
+    </div>
+
+{% endblock body %}
