@@ -4,7 +4,7 @@ import io
 import base64
 
 # Skills and their strength levels
-skills = ['Coding', 'Communication', 'Presentation designing', 'Leadership']
+skills = ['Coding', 'Leadership', 'Communication', 'Presentation designing']
 strengths = [83, 21, 8, 98]
 
 # --- Create Radar Chart ---
