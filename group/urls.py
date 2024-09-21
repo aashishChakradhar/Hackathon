@@ -16,6 +16,7 @@ urlpatterns = [
     
     #review left
     path('formlisting', views.StudentFormListing.as_view(), name='Form Listing'),
+    path('formlisting/<str:title>', views.formdetailview.as_view(), name='Form detail page'),
     path('student-form', views.student_form_view.as_view(), name='student-form'),
 
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),

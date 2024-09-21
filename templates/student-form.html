@@ -5,31 +5,25 @@
     <div class="skill-level">
         <form action="/student-form" method="POST">
             {% csrf_token %}
-            <input type="hidden" name = 'form_id' value = {{form_detail}}>
-            <h2>Rate yourself</h2>
-            <label for="coding">Coding : 0</label>
+            <input type="hidden" name = 'form_id' value = {{formsingle.title}}>
+            <h2>Project work on: {{formsingle.title}}</h2>
+            <h4>Rate yourself</h4>
+            <label for="coding">Coding : <span id="valueDisplay1">50</span>   
+            </label>
             <input type="range" name="coding" min="0" max="100" value="50" oninput="updateValue('valueDisplay1', this.value)">
-            <div class="slider-value">
-                 Value: <span id="valueDisplay1">50</span>
-            </div><br>
+            <br>
 
-            <label for="leadership">Leadership : 0</label>
+            <label for="leadership">Leadership : : <span id="valueDisplay1">50</span> </label>
             <input type="range" name="leadership" min="0" max="100" value="50" oninput="updateValue('valueDisplay2', this.value)">
-            <div class="slider-value">
-                 Value: <span id="valueDisplay2">50</span>
-            </div><br>
+            <br>
 
-            <label for="communication">Communication skill : 0</label>
+            <label for="communication">Communication skill : <span id="valueDisplay1">50</span> </label>
             <input type="range" name="communication" min="0" max="100" value="50" oninput="updateValue('valueDisplay3', this.value)">
-            <div class="slider-value">
-                 Value: <span id="valueDisplay3">50</span>
-            </div><br>
+            <br>
 
-            <label for="presentation">Presentation Designing : 0</label>
+            <label for="presentation">Presentation Designing : <span id="valueDisplay1">50</span></label>
             <input type="range" name = 'presentation' min="0" max="100" value="50" oninput="updateValue('valueDisplay4', this.value)">
-            <div class="slider-value">
-                 Value: <span id="valueDisplay4">50</span>
-            </div><br>
+            <br>
 
             <input type="submit" id="submit" name="submit" value="Submit">
         </form>
@@ -40,11 +34,11 @@
         function updateValue(displayId, val) {
             document.getElementById(displayId).innerText = val;
         }
-
+{% comment %} 
         document.getElementById('studentForm').addEventListener('submit', (e)=>{
             e.preventDefault();
             console.log(document.querySelector('input[name="coding"]').value)
-        })
+        }) {% endcomment %}
     </script>
 
 {% endblock body%}
