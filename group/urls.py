@@ -15,6 +15,7 @@ urlpatterns = [
     path('teacher-form', views.teacher_form_view.as_view(), name='teacher-form'),
     
     #review left
+    path('formlisting', views.StudentFormListing.as_view(), name='Form Listing'),
     path('student-form', views.student_form_view.as_view(), name='student-form'),
 
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),

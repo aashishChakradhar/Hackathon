@@ -1,18 +1,22 @@
 {% extends "base.html" %}
+{% load yes_no %}
 {% block body %}
 <div class="form-listing">
     <div class="container">
         <div class="row">
+            {% for form in form_id %}
             <div class="col-md-3">
-                <h3>Title</h3>
-                <p>Description</p>
+                <h3>{{ form.title }}</h3>
+                <p>{{ form.description }}</p>
                 <p>
-                    <strong>Skills</strong>
-                    <span>Skill 1</span>
+                    <strong>Skills:</strong>
+                    <span>{{ form.communication|yes_no }}</span>
+                    <span>{{ form.presentation|yes_no }}</span>
+                    <span>{{ form.coding|yes_no }}</span>
+                    <span>{{ form.leadership|yes_no }}</span>
                 </p>
             </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-3"></div>
+            {% endfor %}
         </div>
     </div>
 </div>
