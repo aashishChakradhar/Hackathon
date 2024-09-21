@@ -129,31 +129,22 @@ class Signup_View (View):
                 is_superuser = False
                 is_staff = False
                 
-            try:# Create user with validation
-                user = User.objects.create_user(username, email, password, is_superuser=is_superuser, is_staff=is_staff)
-                user.first_name = firstName
-                user.last_name = lastName
-                user.save()
-            except Exception as e:
-                request.session['alert_title'] = "Registration Fail"
-                request.session['alert_detail'] = e
+            user = User.objects.create_user(username, email, password, is_superuser=is_superuser, is_staff=is_staff)
+            user.first_name = firstName
+            user.last_name = lastName
+            user.save()
+            
+            user = authenticate(username=username, password=password)
+            if user is not None:# checks if the user is logged in or not?
+                login(request,user) #logins the user
+                return redirect ('/')
+            else:
+                # Handle failed authentication (e.g., display error message)
+                request.session['alert_title'] = "Login Fail"
+                request.session['alert_detail'] = "Invalid Attempt to login"
                 return redirect(request.path)
-                
-            try:# Authenticate and Login
-                user = authenticate(username=username, password=password)
-                if user is not None:# checks if the user is logged in or not?
-                    login(request,user) #logins the user
-                    return redirect ('/')
-                else:
-                    # Handle failed authentication (e.g., display error message)
-                    request.session['alert_title'] = "Login Fail"
-                    request.session['alert_detail'] = "Invalid Attempt to login"
-                    return redirect(request.path)
-            except Exception as e:
-                request.session['alert_title'] = "Registration Fail"
-                request.session['alert_detail'] = e
-                return redirect(request.path)
-        return render(request, "signup.html")
+            
+        return redirect('/')
 
 class teacher_form_view(View): #creates form
     def get(self,request):
@@ -161,10 +152,7 @@ class teacher_form_view(View): #creates form
             'page_name':'teacher-form'
         }
         return render(request,"teacher-form.html",context)
-<<<<<<< HEAD
-        
-=======
->>>>>>> c11a5fa123fae12dd44a2533bb6c5887906342a5
+    
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
