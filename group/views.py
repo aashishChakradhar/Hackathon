@@ -81,9 +81,7 @@ class Login_view(View):
             request.session['alert_title'] = "Invalid Login Attempt"
             request.session['alert_detail'] = "Please enter valid login credential."
             return redirect(request.path)
-
-        
-        
+      
 class Signup_View (View):
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
@@ -155,12 +153,10 @@ class Signup_View (View):
                 return redirect(request.path)
         return render(request, "signup.html")
 
-
-
 class teacher_form_view(View):
     def get(self,request):
         context = {
-            'page-name':'teacher-form'
+            'page_name':'teacher-form'
         }
         return render(request,"teacher-form.html",context)
     def post(self,request):
@@ -197,7 +193,7 @@ class StudentFormListing(View):
         context = {
             'alert_title': alert_title,
             'alert_detail': alert_detail,
-            'page_name': 'student form',
+            'page_name': 'student-form',
             'form_id': form_id
         }
         return render(request, "formlisting.html", context)
@@ -211,6 +207,7 @@ class formdetailview(View):
         template = loader.get_template('student-form.html')
         context = {
             'formsingle': formsingle,
+            'page_name' : 'form-details'
         }
         return HttpResponse(template.render(context, request))
 
@@ -253,8 +250,6 @@ class formdetailview(View):
                 print(e)
         return redirect ('/')  
 
-
-
 class student_form_view(View):
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
@@ -265,7 +260,7 @@ class student_form_view(View):
         context = {
             'alert_title':alert_title,
             'alert_detail':alert_detail,
-            'page_name': 'student form',
+            'page_name': 'student-form',
             'form_id': form_id
         }
         return render(request,"student-form.html",context)
@@ -295,6 +290,7 @@ class Student_Profile_view(View):
         user_id = request.user.id
         context = {
             'user_id': user_id,
+            'page_name' : 'student-profile'
         }
         return render(request,"student-profile.html",context)
 
@@ -340,46 +336,3 @@ class Team_generator(View):
 
     #     return render(request,"team-generator.html",context)
 # login and sign up related views
-
-
-'''
-
-form_id1 = FormDetail.object.id
-        form_id2 = Skillset.object.id
-        if(form_id1 == form_id2):
-            coding = Skillset.objects.coding.all
-            leadership = Skillset.objects.coding.all
-            communication = Skillset.objects.coding.all
-            presentation = Skillset.objects.coding.all
-            context = {
-                'user_id': user_id,
-            }
-
-    user_id = request.user.id if request.user.is_authenticated else None
-
-        # Retrieve specific Skillset (replace with your logic)
-        skillset_id = request.GET.get('skillset_id')  # Assuming skillset ID is passed in the URL or form
-        try:
-            skillset = Skillset.objects.get(pk=skillset_id)
-            coding = skillset.coding
-            leadership = skillset.leadership
-            communication = skillset.communication
-            presentation = skillset.presentation
-        except Skillset.DoesNotExist:
-            # Handle case where skillset with ID is not found
-            skillset = None
-            coding = None  # Set appropriate values for not found case
-            leadership = None
-            communication = None
-            presentation = None
-
-        context = {
-            'user_id': user_id,
-            'skillset': skillset,  # Pass the entire Skillset object if needed
-            'coding': coding,
-            'leadership': leadership,
-            'communication': communication,
-            'presentation': presentation,
-        }
-
-'''
