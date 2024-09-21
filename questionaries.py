@@ -38,6 +38,92 @@ leadership_questions = {
         3 : "Recognize team members’ efforts by celebrating small wins and giving praise where due to maintain morale.",
         4 : "Delegate tasks based on each team member’s strengths, ensuring that the workload is balanced across the team.",
         5 : "Encourage open communication by holding a team meeting where everyone can voice concerns and suggest improvements.",
-    }
+    },
+}
 
+coding_question = {
+    "You are tasked with improving the performance of a function that processes a large dataset. The function is slow due to repeated operations and inefficient data structures. Which of the following strategies would help optimize the function?" :{
+        0 : "Switch from a list to a linked list for faster random access.",
+        1 : "Use recursion to reduce the amount of code and improve performance by avoiding loops.",
+        2 : "Avoid premature optimization and focus on code readability and maintainability, as the function might be fast enough for most use cases.",
+        3 : "Profile the code using a performance profiling tool to identify the slowest parts of the function and focus optimization efforts there.",
+        4 : "Replace nested loops with a hash map (dictionary in Python) where possible to reduce the time complexity of lookups.",
+        5 : "Implement caching (memoization) to store results of expensive function calls and avoid redundant computations.",
+    },
+    "You are developing an application that processes user input and stores it in a database. To ensure the application is robust and efficient, which strategies would you implement for handling user input and database interactions? " : {
+        0 : "Log all user inputs without any restrictions for debugging purposes.",
+        1 : "Use raw SQL queries for all database interactions to maximize performance.",
+        2 : "Sanitize user input before storing it in the database to prevent security vulnerabilities.",
+        3 : "Utilize connection pooling to manage database connections efficiently and reduce latency.",
+        4 : "Validate user input on both the client side and server side to prevent invalid data from being processed.",
+        5 : "Implement prepared statements or parameterized queries to protect against SQL injection attacks.",
+    },
+    "You are developing a mobile application that needs to handle real-time user location updates efficiently. What strategies would you implement to ensure optimal performance and resource usage?" : {
+        0 : "Continuously request the most accurate location data every second to ensure precision at all times.",
+        1 : "Send all location updates to the server immediately, regardless of their frequency or the user’s activity state.",
+        2 : "Implement background location updates with minimal accuracy to save power when the user is not actively using the app.",
+        3 : "Utilize a low-power location tracking API that reduces the frequency of location updates while maintaining acceptable accuracy.",
+        4 : "Optimize the data processing of location updates by using efficient algorithms to handle and store data.",
+        5 : "Use geofencing to limit location updates to specific areas, reducing unnecessary computations and battery usage.",
+    },
+    "You are tasked with improving the performance of a function that processes a large dataset. The function is slow due to repeated operations and inefficient data structures. Which of the following strategies would help optimize the function?" : {
+        0 : "Switch from a list to a linked list for faster random access.",
+        1 : "Use recursion to reduce the amount of code and improve performance by avoiding loops.",
+        2 : "Avoid premature optimization and focus on code readability and maintainability, as the function might be fast enough for most use cases.",
+        3 : "Profile the code using a performance profiling tool to identify the slowest parts of the function and focus optimization efforts there.",
+        4 : "Implement caching (memoization) to store results of expensive function calls and avoid redundant computations.",
+        5 : "Replace nested loops with a hash map (dictionary in Python) where possible to reduce the time complexity of lookups.",
+    },
+    "You are developing an application that needs to handle a large number of user requests efficiently. What techniques would you use to ensure the application scales well under high load?" : {
+        0 : "Write code that is easy to read and maintain, as it will help future developers.",
+        1 : "Use a single-threaded event loop to handle requests asynchronously.",
+        2 : "Implement rate limiting to control the number of requests a user can make in a given time frame.",
+        3 : "Use microservices architecture to break down the application into smaller, manageable services.",
+        4 : "Implement load balancing to distribute incoming requests across multiple servers.",
+        5 : "Optimize database queries by using indexing and caching frequently accessed data.",
+    },
+}
+
+communication_question = {
+    "Imagine you need to explain a complex technical concept (such as APIs) to a non-technical audience. What strategies would you employ to ensure effective communication? " : {
+        0 : "Focus on jargon and industry-specific terminology to establish credibility.",
+        1 : "Provide a detailed technical explanation, assuming the audience has some prior knowledge.",
+        2 : "Summarize the key points at the end to reinforce understanding.",
+        3 : "Encourage questions throughout the explanation to gauge understanding.",
+        4 : "Use analogies and relatable examples to simplify the concept.",
+        5 : "Use visual aids, like diagrams or slides, to complement your explanation.",
+    },
+    "Imagine you need to explain a complex technical concept (like FastAPI) to a non-technical stakeholder (like a project manager). What strategies would you use to ensure your explanation is clear and effective?" : {
+        0 : "Use technical jargon and industry-specific terms to demonstrate expertise.",
+        1 : "Assume the stakeholder has a basic understanding of technical concepts and skip introductory explanations.",
+        2 : "Create a visual aid, like a diagram or flowchart, to illustrate the concept.",
+        3 : "Break down the concept into smaller, more manageable parts, explaining each step clearly.",
+        4 : "Encourage questions and be open to clarifying any points that may be confusing.",
+        5 : "Provide analogies or real-world examples that relate to the stakeholder's experiences.",
+    },
+    "Imagine you are leading a team meeting to discuss a new project. How would you effectively communicate your ideas and ensure that all team members are engaged and understand the project's objectives? " : {
+        0 : "Use technical jargon and complex terminology to showcase your expertise. ",
+        1 : "Speak for the entire duration of the meeting without interruptions to maintain control over the conversation.",
+        2 : "Summarize key points and action items at the end of the meeting to ensure everyone is on the same page.",
+        3 : "Encourage questions and feedback throughout the meeting to promote discussion.",
+        4 : "Use visual aids, such as slides or charts, to help illustrate your points and make the information more digestible.",
+        5 : "Clearly outline the project objectives and key deliverables at the beginning of the meeting.",
+    },
+    "Imagine you need to explain a complex technical concept (such as an algorithm or system architecture) to a non-technical stakeholder. What strategies would you use to ensure your explanation is clear and effective?" : {
+        0 : "Use technical jargon to convey expertise and build credibility.",
+        1 : "Focus solely on the details to demonstrate thorough knowledge of the topic.",
+        2 : "Provide a high-level overview first before diving into details to set the context.",
+        3 : "Encourage questions throughout the explanation to clarify any misunderstandings.",
+        4 : "Use analogies or metaphors that relate the concept to everyday experiences.",
+        5 : "Present the information in a structured format, using bullet points or visuals to aid understanding.",
+    },
+    "You need to present a complex technical concept to a non-technical audience. How would you approach this presentation?" : {
+        0 : "Use technical jargon and in-depth details to showcase your expertise.",
+        1 : "Focus on delivering the content as quickly as possible to cover all points.",
+        2 : "Encourage questions throughout the presentation to ensure understanding.",
+        3 : "Provide a clear overview of the concept before diving into details.",
+        4 : "Start with a real-world analogy that relates to the audience’s experiences.",
+        5 : "Use visual aids like diagrams or charts to illustrate key points.",
+    },
+    
 }
