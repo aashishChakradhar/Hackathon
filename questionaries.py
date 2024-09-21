@@ -84,3 +84,46 @@ coding_question = {
     },
 }
 
+communication_question = {
+    "Imagine you need to explain a complex technical concept (such as APIs) to a non-technical audience. What strategies would you employ to ensure effective communication? " : {
+        0 : "Focus on jargon and industry-specific terminology to establish credibility.",
+        1 : "Provide a detailed technical explanation, assuming the audience has some prior knowledge.",
+        2 : "Summarize the key points at the end to reinforce understanding.",
+        3 : "Encourage questions throughout the explanation to gauge understanding.",
+        4 : "Use analogies and relatable examples to simplify the concept.",
+        5 : "Use visual aids, like diagrams or slides, to complement your explanation.",
+    },
+    "Imagine you need to explain a complex technical concept (like FastAPI) to a non-technical stakeholder (like a project manager). What strategies would you use to ensure your explanation is clear and effective?" : {
+        0 : "Use technical jargon and industry-specific terms to demonstrate expertise.",
+        1 : "Assume the stakeholder has a basic understanding of technical concepts and skip introductory explanations.",
+        2 : "Create a visual aid, like a diagram or flowchart, to illustrate the concept.",
+        3 : "Break down the concept into smaller, more manageable parts, explaining each step clearly.",
+        4 : "Encourage questions and be open to clarifying any points that may be confusing.",
+        5 : "Provide analogies or real-world examples that relate to the stakeholder's experiences.",
+    },
+    "Imagine you are leading a team meeting to discuss a new project. How would you effectively communicate your ideas and ensure that all team members are engaged and understand the project's objectives? " : {
+        0 : "Use technical jargon and complex terminology to showcase your expertise. ",
+        1 : "Speak for the entire duration of the meeting without interruptions to maintain control over the conversation.",
+        2 : "Summarize key points and action items at the end of the meeting to ensure everyone is on the same page.",
+        3 : "Encourage questions and feedback throughout the meeting to promote discussion.",
+        4 : "Use visual aids, such as slides or charts, to help illustrate your points and make the information more digestible.",
+        5 : "Clearly outline the project objectives and key deliverables at the beginning of the meeting.",
+    },
+    "Imagine you need to explain a complex technical concept (such as an algorithm or system architecture) to a non-technical stakeholder. What strategies would you use to ensure your explanation is clear and effective?" : {
+        0 : "Use technical jargon to convey expertise and build credibility.",
+        1 : "Focus solely on the details to demonstrate thorough knowledge of the topic.",
+        2 : "Provide a high-level overview first before diving into details to set the context.",
+        3 : "Encourage questions throughout the explanation to clarify any misunderstandings.",
+        4 : "Use analogies or metaphors that relate the concept to everyday experiences.",
+        5 : "Present the information in a structured format, using bullet points or visuals to aid understanding.",
+    },
+    "You need to present a complex technical concept to a non-technical audience. How would you approach this presentation?" : {
+        0 : "Use technical jargon and in-depth details to showcase your expertise.",
+        1 : "Focus on delivering the content as quickly as possible to cover all points.",
+        2 : "Encourage questions throughout the presentation to ensure understanding.",
+        3 : "Provide a clear overview of the concept before diving into details.",
+        4 : "Start with a real-world analogy that relates to the audience’s experiences.",
+        5 : "Use visual aids like diagrams or charts to illustrate key points.",
+    },
+    
+}
