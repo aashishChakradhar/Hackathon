@@ -152,21 +152,20 @@ presentation_question = {
         4 : "Use a consistent and professional template throughout the presentation.",
         5 : "Incorporate visuals such as images, charts, and infographics to support your points.",
     },
-    "" : {
-        0 : "",
-        1 : "",
-        2 : "",
-        3 : "",
-        4 : "",
-        5 : "",
+    "You are tasked with designing a presentation for an important stakeholder meeting. Which of the following design principles or strategies would you consider?" : {
+        0 : "Include as much text as possible to ensure all information is conveyed.",
+        1 : "Rely solely on animations and transitions to make the slides more engaging.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Use high-quality images and graphics to support your points.",
+        4 : "Use a consistent color scheme and font throughout the presentation.",
+        5 : "Structure the presentation with clear sections and transitions to guide the audience.",
     },
-    "" : {
-        0 : "",
-        1 : "",
-        2 : "",
-        3 : "",
-        4 : "",
-        5 : "",
-    },
-    
+    "You are tasked with creating a presentation for a stakeholder meeting to explain a new product feature. What design elements and strategies would you incorporate to ensure the presentation is effective?" : {
+        0 : "Include as much text as possible on each slide to cover all details.",
+        1 : "Use animations and transitions on every slide to make it visually dynamic.",
+        2 : "Limit the number of slides to keep the presentation concise and focused.",
+        3 : "Use a consistent color scheme and font style throughout the presentation.",
+        4 : "Provide a clear summary slide at the end to recap key takeaways.",
+        5 : "Incorporate visuals such as images, infographics, or charts to support your points.",
+    },   
 }
