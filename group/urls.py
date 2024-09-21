@@ -22,4 +22,6 @@ urlpatterns = [
     path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
 
     path('team-generator', views.Team_generator.as_view(), name='team-generator'),
+
+    # path('student-index', views.student_index.as_view(), name='student-index'),//student homepage
 ]
