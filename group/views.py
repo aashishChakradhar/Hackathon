@@ -1,4 +1,8 @@
 from django.shortcuts import render, redirect,HttpResponse
+
+from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator
+
 from django.template import loader
 from django.views import View
 from django.shortcuts import get_object_or_404
@@ -73,6 +77,54 @@ class Signup_View (View):
         if request.method == 'POST':
             firstName = request.POST.get('firstName')
             lastName = request.POST.get('lastName')
+            username = request.POST.get('username')  
+
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            status  = request.POST.get('staff')
+
+            # Email Validation
+            try:
+                validator = EmailValidator()
+                validator(email)
+            except ValidationError as e:
+                # Handle invalid email (e.g., display error message)
+                return render(request, "signup.html", {'error_message': 'Invalid email address!'})
+
+            # Determine user type
+            is_superuser = False
+            is_staff = False
+            if status == 'admin':
+                is_superuser = True
+                is_staff = True
+            elif status == 'teacher':
+                is_staff = True
+            elif status == 'student':
+                is_staff = False
+
+            try:
+                # Create user with validation
+                user = User.objects.create_user(username, email, password, is_superuser=is_superuser, is_staff=is_staff)
+                user.first_name = firstName
+                user.last_name = lastName
+                user.save()
+
+                # Authenticate and Login
+                user = authenticate(username=username, password=password)
+                if user:
+                    login(request, user)
+                    return redirect('/')
+                else:
+                    # Handle failed authentication (e.g., display error message)
+                    return render(request, "signup.html", {'error_message': 'Login failed!'})
+            except Exception as e:
+                # Handle other exceptions during user creation (e.g., display generic error message)
+                return render(request, "signup.html", {'error_message': 'An error occurred during registration!'})
+
+        return render(request, "signup.html")
+        '''if request.method == 'POST':
+            firstName = request.POST.get('firstName')
+            lastName = request.POST.get('lastName')
             username = request.POST.get('username')
             email = request.POST.get('email') #validation required
             password = request.POST.get('password')
@@ -92,7 +144,7 @@ class Signup_View (View):
                 
             user = User.objects.create_user(username , email, password,is_superuser=is_superuser,is_staff = is_staff)
             user.save()
-
+            user = authenticate(username=username, password=password)
             #additional user details
             user.first_name=firstName
             user.last_name=lastName
@@ -100,7 +152,7 @@ class Signup_View (View):
             user = authenticate(username = username, password = password)
             if user is not None:# checks if the user is logged in or not?
                 login(request,user) #logins the user
-            return redirect ('/')  
+            return redirect ('/') ''' 
 
 class teacher_form_view(View):
     def get(self,request):
@@ -167,14 +219,22 @@ class formdetailview(View):
             presentation = request.POST.get('presentation')
             coding = request.POST.get('coding')
             leadership = request.POST.get('leadership')
-            student_detail = Skillset.objects.create(
-                user_id = user_id,
-                title = title,
-                communication=communication,
-                presentation = presentation,
-                coding = coding,
-                leadership = leadership,
-            ).save()
+            try:
+                student_detail = Skillset.objects.create(
+                    user_id=user_id,
+                    title=title,
+                    communication=communication,
+                    presentation=presentation,
+                    coding=coding,
+                    leadership=leadership,
+                ).save()
+                if student_detail:
+                    df = pd.DataFrame.from_dict([student_detail.as_dict()])
+                    name = f"{title}.csv"
+                    df.to_csv(f"Data/{name}", index=False)
+                    return redirect('/')
+            except Exception as e:
+                print(e)
         return redirect ('/')  
 
 
