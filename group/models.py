@@ -13,12 +13,19 @@ class BaseModel(models.Model):
     class Meta:
         abstract=True
 
+class FormDetail(BaseModel):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to User model
+    title = models.CharField(max_length=25)
+    description = models.CharField(max_length=25)
+    status = models.BooleanField(default=False)  # Consider using a more descriptive name for the status field
+
 class Skillset(BaseModel):
-    id = models.ForeignKey(User, on_delete=models.CASCADE,default=00)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to User model
+    form_detail = models.ForeignKey(FormDetail,related_name='formdetail', on_delete=models.CASCADE)  # Link to FormDetail
     coding = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     leadership = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     communication = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     presentation = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
-    
-    def __str__(self):
-        return self.id
+
+class detail(BaseModel):
+    press = models.CharField(default = 'Unknown', max_length=50)
