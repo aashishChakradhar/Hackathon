@@ -1,42 +1,30 @@
 {% extends "base.html" %}
-{% block title %}
-{{page_name}}
-{% endblock title %}
-{% block body %}
-<<<<<<< HEAD
-<div class="container">
-    <div class="question-wrapper">
-        <h2 class="text-center">questionaire</h2>
-        {% for question in questionList %}
-        <div class="question-box">
-            <h3>question: {{question}}</h3>
-            {% for answer in answerList %}
 
-            <div class="form-check">
-                <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="answer" id="exampleRansweradios1" value="option1">
-                    {{answer}}
-                </label>
-=======
+{% block title %}
+{{ page_name }}
+{% endblock title %}
+
+{% block body %}
 <form action="/question-form" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name = 'title' value = {{title}}>
     <div class="container">
         <div class="question-wrapper">
-            <h2 class="text-center">questionaire</h2>
+            <h2 class="text-center">Questionnaire</h2>
+
             {% for question, answers in random_questions.items %}
             <div class="question-box">
-                <h3>question: {{question}}</h3>
+                <h3>Question: {{ question }}</h3>
                 {% for score, answer in answers.items %}
-    
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="{{answer}}" id="{{answer}}" value="{{score}}">
-                        {{answer}}
+                        <input class="form-check-input" type="radio" name="question_{{ forloop.parentloop.counter0  }}" id="{{ answer }}" value="{{ score }}">
+                        {{ answer }}
                     </label>
                 </div>
                 {% endfor %}
->>>>>>> b2ab2a8ac446c0ee8823efba4f3ef8abe0592b77
             </div>
-    
+            
             {% endfor %}
         </div>
     </div>
