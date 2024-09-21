@@ -3,6 +3,7 @@
 {{page_name}}
 {% endblock title %}
 {% block body %}
+<<<<<<< HEAD
 <div class="container">
     <div class="question-wrapper">
         <h2 class="text-center">questionaire</h2>
@@ -16,11 +17,29 @@
                 <input class="form-check-input" type="radio" name="answer" id="exampleRansweradios1" value="option1">
                     {{answer}}
                 </label>
+=======
+<form action="/question-form" method="POST">
+    <div class="container">
+        <div class="question-wrapper">
+            <h2 class="text-center">questionaire</h2>
+            {% for question, answers in random_questions.items %}
+            <div class="question-box">
+                <h3>question: {{question}}</h3>
+                {% for score, answer in answers.items %}
+    
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="{{answer}}" id="{{answer}}" value="{{score}}">
+                        {{answer}}
+                    </label>
+                </div>
+                {% endfor %}
+>>>>>>> b2ab2a8ac446c0ee8823efba4f3ef8abe0592b77
             </div>
+    
             {% endfor %}
         </div>
-
-        {% endfor %}
     </div>
-</div>
+    <input type="submit" id="submit" name="submit" value="Submit">
+</form>
 {% endblock body %}

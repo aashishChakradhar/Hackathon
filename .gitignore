@@ -4,3 +4,4 @@ env/
 __pycache__/
 rough
 db.sqlite3
+group/migrations/
