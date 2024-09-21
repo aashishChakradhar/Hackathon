@@ -110,8 +110,8 @@ class teacher_form_view(View):
     def post(self,request):
         if request.method == 'POST':
             user_id = request.user.id
-            title = request.POST.get('title')
-            description = request.POST.get('description')
+            title = request.POST.get('project-title')
+            description = request.POST.get('project-description')
 
             communication = request.POST.get('communication') is not None
             presentation = request.POST.get('presentation') is not None
@@ -126,22 +126,39 @@ class teacher_form_view(View):
                 coding = coding,
                 leadership = leadership,
             ).save() 
+            return HttpResponse()
         
         return redirect ('/')  
     
-class student_form_view(View):
-    '''def get(self, request):
+class StudentFormListing(View):
+    def get(self, request):
+        alert_title = request.session.get('alert_title', False)
+        alert_detail = request.session.get('alert_detail', False)
+        if alert_title:
+            del request.session['alert_title']
+        if alert_detail:
+            del request.session['alert_detail']
+
+        form_id = FormDetail.objects.all()
+
         context = {
-            "page_name" : "student signup"
+            'alert_title': alert_title,
+            'alert_detail': alert_detail,
+            'page_name': 'student form',
+            'form_id': form_id
         }
-        return render(request, 'student.html', context)'''
+    return render(request, "formlisting.html", context)
+        
+    def post(self,request):
+
+class student_form_view(View):
     
     def get(self,request):
         alert_title = request.session.get('alert_title',False)
         alert_detail = request.session.get('alert_detail',False)
         if(alert_title):del(request.session['alert_title'])
         if(alert_detail):del(request.session['alert_detail'])
-
+        form_id = FormDetail.request.object()
         context = {
             'alert_title':alert_title,
             'alert_detail':alert_detail,
