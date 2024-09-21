@@ -1,5 +1,60 @@
-#itemdisplay div {
-    background: #fff;
-    /* margin:5px; */
-    display: inline-block;
+#itemdisplay:empty{
+    display: none;
+}
+.itemdisplay{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #ffffff;
+    padding: 25px;
+    width: 100%;
+    border-radius: 16px;
+    gap: 20px;
+}
+
+.itemdisplay .group-box{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.item-group {
+    background: #f5f6f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+.groupitems{
+    border-color: #e1e1e1;
+    border-style: solid;
+    border-width: 0;
+    padding: 15px;
+}
+.groupitems:nth-child(1){
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+}
+.groupitems:nth-child(2){
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+}
+.groupitems:nth-child(3){
+    border-right-width: 1px;
+    border-top-width: 1px;
+}
+.groupitems:nth-child(4){
+    border-left-width: 1px;
+    border-top-width: 1px;
+}
+.groupitems p {
+    margin-bottom: 5px;
+    line-height: 1;
+    font-size: 15px;
+}
+.groupitems p:last-child{
+    margin: 0;
+}
+.groupitems p:first-child {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+.groupitems p span:not(:last-child):after{
+    content: ', ';
 }

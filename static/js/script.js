@@ -22,9 +22,9 @@ document.getElementById('teamDivider').addEventListener('click', () => {
         for(let i=0; i<Object.keys(groupedData.data).length; i++){
     
             let gparentDiv = document.createElement('div');
-            gparentDiv.classList.add('col-md-6');
+            gparentDiv.classList.add('item-group');
             let parentDiv = document.createElement('div');
-            parentDiv.classList.add('row');
+            parentDiv.classList.add('group-box');
     
             for (let key in groupedData.data[i]) {
                 const div = document.createElement('div');
@@ -32,8 +32,7 @@ document.getElementById('teamDivider').addEventListener('click', () => {
                 let email = document.createElement('p');
                 let skill = document.createElement('p');
     
-                div.classList.add('groupitems')
-                div.classList.add('col-md-6')
+                div.classList.add('groupitems');
     
                 name.innerHTML = groupedData.data[i][key]['Name'];
                 email.innerHTML = groupedData.data[i][key]['Email'];

@@ -1,27 +1,30 @@
 {% extends "base.html" %}
 {% block title %}
-{{page_name}}
+
 {% endblock title %}
 {% block body %}
-This is Teacher HomePage <br>
 
-<div class="card" >
-    <a href="{% url 'group:team-generator' %}">
-        <img src="static/image/search.jpg" alt="Logout icon" width="250" height="250">
-    </a>
+<div class="card-listing">
+    <div class="title">
+        <span>This is Teacher HomePage</span>
+    </div>
+    <div class="card" >
+        <a href="{% url 'group:team-generator' %}">
+            <img src="static/image/search.jpg" alt="Logout icon" width="250" height="250">
+        </a>
+    </div>
+
+    <div class="card" >
+        <a href="{% url 'group:teacher-form' %}">
+            <img src="static/image/form.jpg" alt="form icon" width="250" height="250">
+        </a>
+    </div>
+
+    <div class="card" >
+        <a href="{% url 'group:logout' %}">
+            <img src="static/image/logout.jpg" alt="Logout icon" width="250" height="250">
+        </a>
+    </div>
 </div>
-
-<div class="card" >
-    <a href="{% url 'group:teacher-form' %}">
-        <img src="static/image/form.jpg" alt="form icon" width="250" height="250">
-    </a>
-</div>
-
-<div class="card" >
-    <a href="{% url 'group:logout' %}">
-        <img src="static/image/logout.jpg" alt="Logout icon" width="250" height="250">
-    </a>
-</div>
-
 {% endblock body %}
 
