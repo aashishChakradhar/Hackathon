@@ -294,45 +294,7 @@ class Student_Profile_view(View):
         }
         return render(request,"student-profile.html",context)
 
-class Team_generator(View):
-    def post(self,request):  # Assuming the form ID is passed in the URL
-        if request.method == 'POST':
-            form_id = request.POST.get('username')
-            context = {}
-            # try:
-            #     skillset = Skillset.objects.get(form_detail = form_id)
-            #     context = {
-            #         'detail' = skillset,
-            #     }
-            return render(request, "team-generator.html", context)
+class Team_Generator(View):
+    def get(self,request):  # Assuming the form ID is passed in the URL
+        return render(request, "activate.html")
 
-        # Retrieve all users with the same form ID (replace with your logic for getting form_id)
-        # users_with_same_form = FormDetail.objects.filter(pk=form_id).values_list('user')  # Optimized query
-
-        # if users_with_same_form:
-        #     user_skillsets = []  # List to store extracted data
-        #     for user_id in users_with_same_form:
-        #         try:
-        #             skillset = Skillset.objects.get(user=user_id[0], form_detail=form_id)  # Filter by both user and form ID
-        #             user_skillsets.append({
-        #                 'user_id': user_id[0],
-        #                 'coding': skillset.coding,
-        #                 'leadership': skillset.leadership,
-        #                 'communication': skillset.communication,
-        #                 'presentation': skillset.presentation,
-        #             })
-        #         except Skillset.DoesNotExist:
-        #             pass  # Handle case where a user doesn't have a Skillset object for this form
-
-        #     context['user_skillsets'] = user_skillsets
-        # else:
-        #     context['message'] = 'No users found with this form ID.'  # Informational message
-
-        
-    # def get(self,request):
-    #     formDetail_id = 00
-    #     if Skillset.objects.filter(id = formDetail_id)
-    #     skillset_form_id = 
-
-    #     return render(request,"team-generator.html",context)
-# login and sign up related views

@@ -44,8 +44,6 @@ def predict():
         # Assuming you have a list of DataFrames
         dataframes = [data[data['cluster'] == x] for x in data['cluster'].unique()]# List of your DataFrames
 
-        print(dataframes)
-
         # Initialize an empty list to store the groups
         groups = []
 
