@@ -9,7 +9,7 @@
                 <div class="card-body">
                 <h5 class="card-title">{{ form.title }}</h5>
                 <p class="card-text">{{ form.description }}</p>
-                <a href="/formlisting/{{ form.title }}" class="btn btn-primary">Go somewhere</a>
+                <a href="{% url 'group:question-form' %}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         {% endfor %}

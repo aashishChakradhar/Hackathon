@@ -1,26 +1,29 @@
 {% extends "base.html" %}
+
 {% block title %}
-{{page_name}}
+{{ page_name }}
 {% endblock title %}
+
 {% block body %}
 <form action="/question-form" method="POST">
+    {% csrf_token %}
     <div class="container">
         <div class="question-wrapper">
-            <h2 class="text-center">questionaire</h2>
+            <h2 class="text-center">Questionnaire</h2>
+
             {% for question, answers in random_questions.items %}
             <div class="question-box">
-                <h3>question: {{question}}</h3>
+                <h3>Question: {{ question }}</h3>
                 {% for score, answer in answers.items %}
-    
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="{{answer}}" id="{{answer}}" value="{{score}}">
-                        {{answer}}
+                        <input class="form-check-input" type="radio" name="question_{{ forloop.parentloop.counter0  }}" id="{{ answer }}" value="{{ score }}">
+                        {{ answer }}
                     </label>
                 </div>
                 {% endfor %}
             </div>
-    
+            
             {% endfor %}
         </div>
     </div>
