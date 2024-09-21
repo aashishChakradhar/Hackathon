@@ -302,8 +302,10 @@ class Student_Profile(View):
         pass
 
 class Question_Form(View):
-    def get(self,request):  # Assuming the form ID is passed in the URL
+    def get(self,request,title):  # Assuming the form ID is passed in the URL
         random_questions = questionaries.create_random_question_dict()
+
+
         context = {
             'page_name':'question_form',
             'random_questions' : random_questions,
@@ -312,12 +314,14 @@ class Question_Form(View):
     def post(self,request):
         if request.method == 'POST':
             user = request.user
+            title = request.POST.get('title')
             coding_question = request.POST.get('question_0')
             leadership_question = request.POST.get('question_1')
             communication_question = request.POST.get('question_2')  
             presentation_question = request.POST.get('question_3')  
             skillset = Skillset.objects.create(
                 user = user,
+                title = title,
                 coding = coding_question,
                 leadership = leadership_question,
                 communication = communication_question,
