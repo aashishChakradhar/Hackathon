@@ -17,10 +17,17 @@ urlpatterns = [
     path('formlisting/<str:title>', views.formdetailview.as_view(), name='formdetailpage'),
     
     path('team-generator', views.Team_Generator.as_view(), name='team-generator'),
-    #review left
-    path('student-form', views.formdetailview.as_view(), name='student-form'),
 
-    path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
+    #working
+    path('question-form', views.Question_Form.as_view(), name='question-form'),
+
+    path('student-profile', views.Student_Profile.as_view(), name='student-profile'),
+    #review left
+
+
+    # path('student-form', views.formdetailview.as_view(), name='student-form'),
+
+    # path('student-profile', views.Student_Profile_view.as_view(), name='student-profile'),
 
     # path('team-generator', views.Team_generator.as_view(), name='team-generator'),
 

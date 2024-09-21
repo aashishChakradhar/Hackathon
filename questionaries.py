@@ -172,6 +172,18 @@ presentation_question = {
     },   
 }
 
+
+# # def generateQuestion():
+# skillList = [coding_question, leadership_question, communication_question, presentation_question]
+# for skill in skillList:
+#     questionList = skill.values()
+#     print (f"{questionList}")
+
+
+    
+def hello():
+    return('Hello world')
+
 def randomQuestion(skill):
     questionList = list(skill.keys())
     random_question = random.choice(questionList)

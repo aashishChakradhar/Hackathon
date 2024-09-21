@@ -85,11 +85,19 @@ body {
     background-color: var(--color-one);
     margin: 0;
     padding: 0;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
+
+/* .page-wrapper{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 80px 0;
+} */
 
 /* Alert Styles */
 .alert {
@@ -218,13 +226,13 @@ body, html {
 }
 
 
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; 
     background-color: #f0f4f8; 
-}
+} */
 
 .skill-selection {
     background-color: #ffffff; 
@@ -233,9 +241,11 @@ body, html {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
     width: 100%;
     max-width: 500px;
-    text-align: center;
 }
-
+.skill-selection h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
 .checkboxes-section {
     text-align: left; 
     margin: 20px 0;   
@@ -254,13 +264,13 @@ body, html {
 }
 
 
-.skill-selection label[for="project-title"],
+/* .skill-selection label[for="project-title"],
 .skill-selection input[type="text"] {
     display: block;
     width: 100%;
     margin: 10px auto;
     text-align: center;
-}
+} */
 
 .skill-selection input[type="text"] {
     padding: 10px;
@@ -270,6 +280,7 @@ body, html {
     box-sizing: border-box;
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
 .skill-selection input[type="text"]:focus {
@@ -279,9 +290,9 @@ body, html {
 
 
 .skill-selection label {
-    display: inline-block;
+    display: block;
     font-weight: bold;
-    margin: 10px 5px 10px 0;
+    /* margin: 10px 5px 10px 0; */
     vertical-align: middle; 
     text-align: left;    
 }
@@ -334,13 +345,13 @@ body, html {
 /* for student */
 
 /* Container styling to center content */
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; 
     background-color: var(--color-one);
-}
+} */
 
 /* Skill Level Form styling */
 .skill-level {
@@ -448,3 +459,116 @@ body, html {
         font-size: 1em;
     }
 }
+
+/*Form CSS*/
+label{
+    cursor: pointer;
+}
+.form-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    padding: 80px 0;
+}
+
+.card-listing{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    position: relative;
+}
+.card-listing .card{
+    border-radius: 20px;
+}
+.card-listing .card img{
+    width: 200px;
+    height: auto;
+    aspect-ratio: 1;
+    padding: 20px;
+}
+.card-listing .title {
+    position: absolute;
+    top: calc(50% - 100px);
+    z-index: 1;
+    transform: translateY(-200%);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.skill-wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    gap: 40px;
+}
+
+.input-field{
+    margin-bottom: 25px;
+}
+.input-field label{
+    margin-bottom: 6px;
+}
+.checkbox-field{
+    display: flex;
+    align-items: center;
+}
+.checkbox-field label{
+    order: 1;
+    margin: 0;
+}
+.checkboxes-section{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-selection input[type="submit"]{
+    background-color: var(--color-four);
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.skill-selection input[type="submit"]:hover{
+    background-color: var(--color-tertiary);
+    transform: translateY(-2px);
+}
+
+
+.activate-wrapper{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 80px 0;
+    gap: 40px;
+}
+
+
+.card-wrapper img {
+    width: 150px;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.card-wrapper  .card {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 15px;
+    width: 376px !important;
+    align-items: center;
+    gap: 20px;
+    border-radius: 15px;
+}
+.card-wrapper  .card-body{
+    padding: 0;
+}
+

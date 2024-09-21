@@ -4,35 +4,46 @@
 {{page_name}}
 {% endblock title %}
 {% block body %}
-        <div class="container">
-            <div class="skill-selection">
-                <h2>Skill Selection for the project</h2>
-                <form action = '/teacher-form' method = "POST">
-                    {% csrf_token %}
-                    <!-- Project Title Input -->
+<div class="container">
+    <div class="skill-wrapper">
+        <div class="skill-selection">
+            <h2>Skill Selection for the project</h2>
+            <form action='/teacher-form' method="POST">
+                {% csrf_token %}
+                <!-- Project Title Input -->
+                <div class="input-field">
                     <label for="project-title">Project Title:</label>
-                    <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required><br /><br />
-                    
+                    <input type="text" id="project-title" name="project-title" placeholder="Enter project title"
+                        required>
+                </div>
+                <div class="input-field">
                     <label for="project-description">Project Description:</label>
-                    <input type="text" id="project-description" name="project-description" placeholder="Enter project description" required><br /><br />
-
-                    <div class="checkboxes-section">
-                        <label for="coding">Coding :</label>
-                        <input type="checkbox" id="coding" name="coding"><br /><br />
-
-                        <label for="leadership">Leadership :</label>
-                        <input type="checkbox" id="leadership" name="leadership"><br /><br />
-
-                        <label for="communication">Communication Skills :</label>
-                        <input type="checkbox" id="communication" name="communication"><br /><br />
-
-                        <label for="presentation">Presentation Designing :</label>
-                        <input type="checkbox" id="presentation" name="presentation"><br /><br />
+                    <input type="text" id="project-description" name="project-description"
+                        placeholder="Enter project description" required>
+                </div>
+                <div class="checkboxes-section">
+                    <div class="checkbox-field">
+                        <label for="coding">Coding</label>
+                        <input type="checkbox" id="coding" name="coding">
                     </div>
+                    <div class="checkbox-field">
+                        <label for="leadership">Leadership</label>
+                        <input type="checkbox" id="leadership" name="leadership">
+                    </div>
+                    <div class="checkbox-field">
+                        <label for="communication">Communication Skills</label>
+                        <input type="checkbox" id="communication" name="communication">
+                    </div>
+                    <div class="checkbox-field">
+                        <label for="presentation">Presentation Designing</label>
+                        <input type="checkbox" id="presentation" name="presentation">
+                    </div>
+                </div>
 
-                    <!-- Submit Button -->
-                    <input type="submit" id="submit" name="submit" value="Submit">
-                </form>
-            </div>
+                <!-- Submit Button -->
+                <input type="submit" id="submit" name="submit" value="Submit">
+            </form>
         </div>
+    </div>
+</div>
 {% endblock body %}
