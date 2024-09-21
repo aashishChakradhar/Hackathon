@@ -636,3 +636,34 @@ label{
 .std-details{
     grid-column: 2/3;
 }
+
+.std-graph{
+    margin-top: 40px;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: grid;
+    grid-template-columns: 60% 1fr;
+    align-items: center;
+    gap: 20px;
+    border-radius: 16px;
+}
+.std-graph canvas{
+    width: 100%;
+    height: auto;
+}
+.legend-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin: 0 auto;
+}
+.legend-list li{
+    padding: 5px 25px 5px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.legend-list li + li{
+    border-top: none;
+}
