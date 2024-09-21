@@ -303,17 +303,14 @@ class Student_Profile(View):
 
 class Question_Form(View):
     def get(self,request):  # Assuming the form ID is passed in the URL
-        
         random_questions = questionaries.create_random_question_dict()
-        
-
         context = {
             'page_name':'question_form',
-            'text': text,
             'random_questions' : random_questions,
         }
-        
         return render(request, "questionform.html", context)
+    def post(self,request):
+        return render(request, "questionform.html",)
 
 class Team_Generator(View):
     def get(self,request):  # Assuming the form ID is passed in the URL
