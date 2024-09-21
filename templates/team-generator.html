@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block body %}
-        <div class="container">
+        {% comment %} <div class="container">
             <div class="skill-selection">
                 <h2>Skill Selection for the project</h2>
                 <form name="userForm" onsubmit="return validateForm(event)">
@@ -20,5 +20,8 @@
 
                 </form>
             </div>
-        </div>
+        </div> {% endcomment %}
+        <form name="groupgenerator" action = "/group-generator" method = "POST">
+            <input type="button" value="submit">
+        </form>
         {% endblock body %}
