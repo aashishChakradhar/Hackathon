@@ -212,3 +212,239 @@ body {
     margin-right: 0.5rem;
     accent-color: var(--accent-color); /* Optional: customize the radio button color */
 }
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f0f4f8; 
+}
+
+.skill-selection {
+    background-color: #ffffff; 
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.checkboxes-section {
+    text-align: left; 
+    margin: 20px 0;   
+}
+
+.checkboxes-section label {
+    display: inline-block;
+    font-weight: bold;
+    margin: 10px 5px 10px 0;
+    vertical-align: middle; 
+}
+
+.checkboxes-section input[type="checkbox"] {
+    vertical-align: middle; 
+    margin-right: 10px;
+}
+
+
+.skill-selection label[for="project-title"],
+.skill-selection input[type="text"] {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.skill-selection input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-selection input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.skill-selection label {
+    display: inline-block;
+    font-weight: bold;
+    margin: 10px 5px 10px 0;
+    vertical-align: middle; 
+    text-align: left;    
+}
+
+.skill-selection input[type="checkbox"] {
+    vertical-align: middle; 
+    margin-right: 10px;
+}
+
+
+.skill-selection input[type="button"] {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-selection input[type="button"]:hover {
+    background-color: #3aab55;
+    transform: translateY(-3px);
+}
+
+.skill-selection input[type="button"]:active {
+    background-color: #004494;
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 600px) {
+    .skill-selection {
+        padding: 20px;
+    }
+
+    .skill-selection input[type="button"] {
+        max-width: 100%;
+    }
+}
+
+
+/* for student */
+
+/* Container styling to center content */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: var(--color-one);
+}
+
+/* Skill Level Form styling */
+.skill-level {
+    background-color: var(--color-three);
+    padding: var(--spacing-large);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Label styling for sliders */
+.skill-level label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: var(--spacing-small);
+    color: var(--color-two);
+}
+
+/* Slider input styling */
+.skill-level input[type="range"] {
+    width: 100%;
+    margin-bottom: var(--spacing-medium);
+    appearance: none;
+    height: 10px;
+    background-color: var(--color-bgd);
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Slider handle (thumb) styling */
+.skill-level input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-four);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Slider handle hover and active states */
+.skill-level input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.skill-level input[type="range"]::-webkit-slider-thumb:active {
+    background-color: var(--color-primary);
+    transform: scale(1.2);
+}
+
+/* Display value below each slider */
+.slider-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-two);
+    margin-bottom: var(--spacing-medium);
+}
+
+/* Submit button styling */
+.skill-level input[type="submit"] {
+    background-color: var(--color-four);
+    color: var(--color-three);
+    font-size: 1.2em;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: var(--spacing-small);
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Submit button hover and active states */
+.skill-level input[type="submit"]:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.skill-level input[type="submit"]:active {
+    background-color: var(--color-primary);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .skill-level {
+        padding: var(--spacing-medium);
+        width: 90%;
+    }
+
+    .skill-level input[type="submit"] {
+        font-size: 1em;
+    }
+}
