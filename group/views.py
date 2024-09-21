@@ -7,6 +7,7 @@ from django.contrib import messages
 from group.models import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+import pandas as pd
 
 # from django.template import loader
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -101,36 +102,31 @@ class Signup_View (View):
             return redirect ('/')  
 
 class teacher_form_view(View):
-    # def get(self, request):
-    #     context = {
-    #         "page_name":"teacher signup"
-    #     }
-    #     return render(request,'teacher.html',context)  
-    # def get(self,request):
-    #     alert_title = request.session.get('alert_title',False)
-    #     alert_detail = request.session.get('alert_detail',False)
-    #     if(alert_title):del(request.session['alert_title'])
-    #     if(alert_detail):del(request.session['alert_detail'])
-    #     context = {
-    #         'alert_title':alert_title,
-    #         'alert_detail':alert_detail,
-    #         'page_name': 'Signup'
-    #     }
-    #     return render(request,"signup.html",context)
-        
+    def get(self,request):
+        context = {
+            'page-name':'teacher-form'
+        }
+        return render(request,"teacher-form.html",context)
     def post(self,request):
         if request.method == 'POST':
-            communication = request.POST.get('communication')
-            presentation = request.POST.get('presentation')
-            coding = request.POST.get('coding')
-            leadership = request.POST.get('leadership')
-            Skillset = Skillset.objects.create(
+            user_id = request.user.id
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+
+            communication = request.POST.get('communication') is not None
+            presentation = request.POST.get('presentation') is not None
+            coding = request.POST.get('coding') is not None
+            leadership = request.POST.get('leadership') is not None
+            form_detail = FormDetail.objects.create(
+                user_id = user_id,
+                title = title,
+                description = description,
                 communication=communication,
                 presentation = presentation,
                 coding = coding,
                 leadership = leadership,
-            )
-            Skillset.save() 
+            ).save() 
+        
         return redirect ('/')  
     
 class student_form_view(View):
@@ -145,15 +141,18 @@ class student_form_view(View):
         alert_detail = request.session.get('alert_detail',False)
         if(alert_title):del(request.session['alert_title'])
         if(alert_detail):del(request.session['alert_detail'])
+
         context = {
             'alert_title':alert_title,
             'alert_detail':alert_detail,
-            'page_name': 'student form'
+            'page_name': 'student form',
+            'form_id': form_id
         }
         return render(request,"student-form.html",context)
         
     def post(self,request):
         if request.method == 'POST':
+            filename = request.POST.get('filename')
             user_id = request.user.id
             communication = request.POST.get('communication')
             presentation = request.POST.get('presentation')
@@ -166,6 +165,9 @@ class student_form_view(View):
                 communication=communication,
                 presentation = presentation,
             ).save()  
+            df = pd.DataFrame.from_dict(skillsets)
+            filename = ''.csv
+            df.to_csv(filename, index=False)
         return redirect ('/')  
 
 class Student_Profile_view(View):
@@ -177,11 +179,17 @@ class Student_Profile_view(View):
         return render(request,"student-profile.html",context)
 
 class Team_generator(View):
-    def get(self,request):  # Assuming the form ID is passed in the URL
-        form_id = request.get.POST('username')
-        context = {}
-        try:
-            skillset = Skillset.objects.get(form_detail = form_id)
+    def post(self,request):  # Assuming the form ID is passed in the URL
+        if request.method == 'POST':
+            form_id = request.POST.get('username')
+            context = {}
+            # try:
+            #     skillset = Skillset.objects.get(form_detail = form_id)
+            #     context = {
+            #         'detail' = skillset,
+            #     }
+            return render(request, "team-generator.html", context)
+
         # Retrieve all users with the same form ID (replace with your logic for getting form_id)
         # users_with_same_form = FormDetail.objects.filter(pk=form_id).values_list('user')  # Optimized query
 
@@ -204,8 +212,7 @@ class Team_generator(View):
         # else:
         #     context['message'] = 'No users found with this form ID.'  # Informational message
 
-        return render(request, "rough.html", context)
-
+        
     # def get(self,request):
     #     formDetail_id = 00
     #     if Skillset.objects.filter(id = formDetail_id)
