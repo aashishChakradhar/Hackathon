@@ -85,10 +85,18 @@ body {
     background-color: var(--color-one);
     margin: 0;
     padding: 0;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.page-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0 auto;
 }
 
 /* Alert Styles */
