@@ -3,13 +3,8 @@
     {{page_name}}
 {% endblock title %}
 {% block body %}
-    <!-- profile page <br>
-    User Id: {{user_id}} <br>
-    First Name: {{first_name}} <br>
-    Last Name:  {{last_name}} <br>
-    Email: {{email}} <br> -->
-
     <div class="student-profile">
+        <button onclick="history.back()" class="btn btn-primary my-2">Go Back</button>
         <div class="std-box">
             <div class="std-img">
                 <img src="../static/image/group.jpg" alt="">
@@ -41,21 +36,15 @@
         document.addEventListener("DOMContentLoaded", (event) => {
             const currentUser = document.querySelector('.useriddata').getAttribute('data-userid');
 
-            console.log(currentUser);
-
-            // Path to JSON file: "../data/data.json"
-            fetch('/static/data/data.json') // Go up one directory from 'templates' to 'data'
-                .then(response => response.json()) // Parse the JSON data
+            fetch('/static/data/data.json')
+                .then(response => response.json())
                 .then(data => {
                     data.forEach(element => {
                         for (let keys in element){
                             if (currentUser ==  element[keys]['Id'])
                                 console.log(element)
                         }
-                        // console.log(element);
                     });
-                    // console.log(data[0]) 
-                    // console.log(data); // Handle your data here
 
                 })
                 .catch(error => {
