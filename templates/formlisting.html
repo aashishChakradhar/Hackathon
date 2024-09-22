@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block title %}{{page_name}}{% endblock title %}
 {% block body %}
+<div class="container" style="padding-top: 30px;">
+    <a href="/" class="btn btn-primary">Go Back</a>
+</div>
 <div class="form-listing">
     <div class="form-wrapper">
         {% for form in form_id %}
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <!-- <img src="" class="card-img-top" alt="..."> -->
                 <div class="card-body">
-                <h5 class="card-title">{{ form.title }}</h5>
-                <p class="card-text">{{ form.description }}</p>
+                <h5 class="card-title">Name: {{ form.title }}</h5>
+                <p class="card-text">Description: {{ form.description }}</p>
                 <a href="/formlisting/{{ form.title }}" class="btn btn-primary">Evalute your skills </a>
                 </div>
             </div>
