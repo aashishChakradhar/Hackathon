@@ -687,3 +687,8 @@ label{
 .legend-list li + li{
     border-top: none;
 }
+
+
+.group-box {
+    display: inline-block;
+}
