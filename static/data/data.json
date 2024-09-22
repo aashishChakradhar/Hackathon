@@ -376,5 +376,47 @@
       "Presentation designing": 0,
       "cluster": 2
     }
+  ],
+  [
+    {
+      "Id": 30,
+      "Name": "Lily",
+      "Email": "testuser30@example.com",
+      "Coding": 20,
+      "Leadership": 15,
+      "Communication Skill": 100,
+      "Presentation designing": 1,
+      "cluster": 0
+    },
+    {
+      "Id": 49,
+      "Name": "Adam",
+      "Email": "testuser9@example.com",
+      "Coding": 88,
+      "Leadership": 21,
+      "Communication Skill": 29,
+      "Presentation designing": 28,
+      "cluster": 1
+    },
+    {
+      "Id": 50,
+      "Name": "Christopher",
+      "Email": "testuser10@example.com",
+      "Coding": 88,
+      "Leadership": 1,
+      "Communication Skill": 24,
+      "Presentation designing": 20,
+      "cluster": 1
+    },
+    {
+      "Id": 1,
+      "Name": "tester",
+      "Email": "tester@gmail.com",
+      "Coding": 64,
+      "Leadership": 32,
+      "Communication Skill": 64,
+      "Presentation designing": 16,
+      "cluster": 1
+    }
   ]
 ]
