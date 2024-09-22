@@ -32,24 +32,76 @@
         </div>
     </div>
 
+    <div class="other-team-wrap container std-box" style="width: 1200px;">
+        <h2>Other Members</h2>
+        <div id="othermembers"></div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
             const currentUser = document.querySelector('.useriddata').getAttribute('data-userid');
+            let member = 0;
 
             fetch('/static/data/data.json')
                 .then(response => response.json())
                 .then(data => {
                     data.forEach(element => {
                         for (let keys in element){
-                            if (currentUser ==  element[keys]['Id'])
-                                console.log(element)
+                            if (currentUser ==  element[keys]['Id']){
+                                member = element;
+                                break;
+                            }
                         }
                     });
+
+                    let gparentDiv = document.createElement('div');
+                    gparentDiv.classList.add('item-group');
+                    member.forEach( element => {
+                        if(currentUser !=  element['Id']){
+                            
+                            let parentDiv = document.createElement('div');
+                            parentDiv.classList.add('group-box');
+
+                            const div = document.createElement('div');
+                            let name = document.createElement('p');
+                            let email = document.createElement('p');
+                            let skill = document.createElement('p');
+
+                            div.classList.add('groupitems');
+                                
+                            name.innerHTML = element['Name'];
+                            email.innerHTML = element['Email'];
+                            coding = element['Coding'];
+                            Leadership = element['Leadership'];
+                            communication = element['Communication Skill'];
+                            presentation = element['Presentation designing'];
+
+                            skills = { 'Coding': coding, 'Leadership': Leadership, 'Communication': communication, 'Presentation': presentation }
+                            const topTwoSpecialities = Object.entries(skills).sort(([, a], [, b]) => b - a).slice(0, 2).map(([key]) => key);
+
+                            topTwoSpecialities.forEach((e) => {
+                                const specialityElement = document.createElement('span');
+                                specialityElement.textContent = e;
+                                skill.appendChild(specialityElement);
+                            })
+
+                            div.appendChild(name);
+                            div.appendChild(email);
+                            div.appendChild(skill);
+
+                            parentDiv.appendChild(div);
+                    
+                            gparentDiv.appendChild(parentDiv);
+                            console.log(element)   
+                        }
+                    });
+                    document.getElementById('othermembers').appendChild(gparentDiv);
 
                 })
                 .catch(error => {
                     console.error('Error reading JSON file:', error);
                 });
+
         });
     </script>
 
