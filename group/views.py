@@ -341,7 +341,7 @@ class Question_Form(View):
                 communication = communication_question,
                 presentation = presentation_question,
             )
-            if skillset:
+            if skillset and not (user.is_staff and user.is_superuser):
                 df = pd.DataFrame.from_dict([{
                     "user_id": user_id,
                     "name" : name,
