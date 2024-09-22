@@ -281,11 +281,20 @@ class student_form_view(View):
 class Student_Profile(View):
     def get(self,request):
         user = request.user
+        coding  = list(Skillset.objects.filter(user=user).values('coding'))[-1]
+        leadership  = list(Skillset.objects.filter(user=user).values('leadership'))[-1]
+        communication  = list(Skillset.objects.filter(user=user).values('communication'))[-1]
+        presentation  = list(Skillset.objects.filter(user=user).values('presentation'))[-1]
+
         context = {
             'user_id': user.id,
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
+            'coding' : (coding['coding'] + 1)*16,
+            'leadership' : (leadership['leadership']+1)*16,
+            'communication' : (communication['communication']+1)*16,
+            'presentation' : (presentation['presentation']+1)*16,
         }
         return render(request, 'student_profile.html', context)
 
@@ -300,11 +309,16 @@ class Question_Form(View):
         context = {
             'page_name':'question_form',
             'random_questions' : random_questions,
+            'title' : title,
         }
         return render(request, "questionform.html", context)
     def post(self,request):
         if request.method == 'POST':
             user = request.user
+            user_id = request.user.id
+            email = request.user.email if request.user.email else request.user.username
+            name = request.user.username
+
             title = request.POST.get('title')
             coding_question = request.POST.get('question_0')
             leadership_question = request.POST.get('question_1')
@@ -317,7 +331,20 @@ class Question_Form(View):
                 leadership = leadership_question,
                 communication = communication_question,
                 presentation = presentation_question,
-            ).save()
+            )
+            if skillset and not (user.is_staff and user.is_superuser):
+                df = pd.DataFrame.from_dict([{
+                    "user_id": user_id,
+                    "name" : name,
+                    "email" : email,
+                    "coding": (int(skillset.coding) + 1)*16,
+                    "leadership": (int(skillset.leadership) + 1)*16,
+                    "communication": (int(skillset.communication) + 1)*16,
+                    "presentation": (int(skillset.presentation) + 1)*16,
+                }])
+                name = "data/data.csv"
+                df.to_csv(name, mode='a', header=not os.path.exists(name), index=False, lineterminator='\n')
+                skillset.save()
         return redirect( "/")
 
 class Team_Generator(View):

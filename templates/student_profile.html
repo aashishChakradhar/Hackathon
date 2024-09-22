@@ -3,13 +3,8 @@
     {{page_name}}
 {% endblock title %}
 {% block body %}
-    <!-- profile page <br>
-    User Id: {{user_id}} <br>
-    First Name: {{first_name}} <br>
-    Last Name:  {{last_name}} <br>
-    Email: {{email}} <br> -->
-
     <div class="student-profile">
+        <button onclick="history.back()" class="btn btn-primary my-2">Go Back</button>
         <div class="std-box">
             <div class="std-img">
                 <img src="../static/image/group.jpg" alt="">
@@ -17,7 +12,7 @@
             
             <span class="useriddata d-none" data-userid="{{user_id}}"></span>
 
-            <div class="std-details">
+            <div class="std-details">   
                 <div class="std-name">
                     {{first_name}} {{last_name}}
                 </div>
@@ -29,30 +24,84 @@
         <div class="std-graph">
             <canvas id="RadarChart" width="" height=""></canvas>
             <ul class="legend-list">
-                <li>Coding</li>
-                <li>Team Leadership</li>
-                <li>Communication Skill</li>
-                <li>Presentation designing</li>
+                <li>Coding: <span>{{coding}}</span></li>
+                <li>Team Leadership: <span>{{leadership}}</span></li>
+                <li>Communication Skill: <span>{{communication}}</span></li>
+                <li>Presentation designing: <span>{{presentation}}</span></li>
             </ul>
         </div>
     </div>
 
+    <div class="other-team-wrap container std-box" style="width: 1200px;">
+        <h2>Other Members</h2>
+        <div id="othermembers"></div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", (event) => {
-            // Path to JSON file: "../data/data.json"
-            fetch('/static/data/data.json') // Go up one directory from 'templates' to 'data'
-                .then(response => response.json()) // Parse the JSON data
+            const currentUser = document.querySelector('.useriddata').getAttribute('data-userid');
+            let member = 0;
+
+            fetch('/static/data/data.json')
+                .then(response => response.json())
                 .then(data => {
-                    // console.log(data[0])
-                    console.log(data); // Handle your data here
+                    data.forEach(element => {
+                        for (let keys in element){
+                            if (currentUser ==  element[keys]['Id']){
+                                member = element;
+                                break;
+                            }
+                        }
+                    });
+
+                    let gparentDiv = document.createElement('div');
+                    gparentDiv.classList.add('item-group');
+                    member.forEach( element => {
+                        if(currentUser !=  element['Id']){
+                            
+                            let parentDiv = document.createElement('div');
+                            parentDiv.classList.add('group-box');
+
+                            const div = document.createElement('div');
+                            let name = document.createElement('p');
+                            let email = document.createElement('p');
+                            let skill = document.createElement('p');
+
+                            div.classList.add('groupitems');
+                                
+                            name.innerHTML = element['Name'];
+                            email.innerHTML = element['Email'];
+                            coding = element['Coding'];
+                            Leadership = element['Leadership'];
+                            communication = element['Communication Skill'];
+                            presentation = element['Presentation designing'];
+
+                            skills = { 'Coding': coding, 'Leadership': Leadership, 'Communication': communication, 'Presentation': presentation }
+                            const topTwoSpecialities = Object.entries(skills).sort(([, a], [, b]) => b - a).slice(0, 2).map(([key]) => key);
+
+                            topTwoSpecialities.forEach((e) => {
+                                const specialityElement = document.createElement('span');
+                                specialityElement.textContent = e;
+                                skill.appendChild(specialityElement);
+                            })
+
+                            div.appendChild(name);
+                            div.appendChild(email);
+                            div.appendChild(skill);
+
+                            parentDiv.appendChild(div);
+                    
+                            gparentDiv.appendChild(parentDiv);
+                            console.log(element)   
+                        }
+                    });
+                    document.getElementById('othermembers').appendChild(gparentDiv);
 
                 })
                 .catch(error => {
                     console.error('Error reading JSON file:', error);
                 });
 
-            // Example to log 'data-userid' attribute of an element with class 'useriddata'
-            console.log(document.querySelector('.useriddata').getAttribute('data-userid'));
         });
     </script>
 

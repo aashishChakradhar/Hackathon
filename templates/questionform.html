@@ -10,6 +10,7 @@
     <input type="hidden" name = 'title' value = {{title}}>
     <div class="container">
         <div class="question-wrapper">
+            <a href="/formlisting" class="btn btn-primary">Go Back</a>
             <h2 class="text-center">Questionnaire</h2>
 
             {% for question, answers in random_questions.items %}
@@ -26,8 +27,8 @@
             </div>
             
             {% endfor %}
+            <input type="submit" id="submit" class="btn btn-primary" name="submit" value="Submit">
         </div>
     </div>
-    <input type="submit" id="submit" name="submit" value="Submit">
 </form>
 {% endblock body %}

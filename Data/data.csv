@@ -1,14 +1,4 @@
 Id,Name,Email,Coding,Leadership,Communication Skill,Presentation designing
-1,Melanie,testuser1@example.com,93,2,40,39
-2,Connor,testuser2@example.com,93,18,21,5
-3,Karen,testuser3@example.com,76,34,30,16
-4,Brian,testuser4@example.com,83,26,1,33
-5,Amy,testuser5@example.com,83,18,21,14
-6,Victor,testuser6@example.com,87,4,6,21
-7,Sue,testuser7@example.com,91,14,34,7
-8,Rebecca,testuser8@example.com,99,2,38,32
-9,Adam,testuser9@example.com,88,21,29,28
-10,Christopher,testuser10@example.com,88,1,24,20
 11,Andrea,testuser11@example.com,17,98,6,40
 12,Jennifer,testuser12@example.com,22,75,0,5
 13,Yvonne,testuser13@example.com,13,99,22,31
@@ -38,5 +28,13 @@ Id,Name,Email,Coding,Leadership,Communication Skill,Presentation designing
 37,Karen,testuser37@example.com,2,35,39,100
 38,Chloe,testuser38@example.com,24,2,0,96
 39,admin,testuser39@gmail.com,98,6,11,3
-
-2,kiran12,test@gmail.com,50,50,50,50
+41,Melanie,testuser1@example.com,93,2,40,39
+42,Connor,testuser2@example.com,93,18,21,5
+43,Karen,testuser3@example.com,76,34,30,16
+44,Brian,testuser4@example.com,83,26,1,33
+45,Amy,testuser5@example.com,83,18,21,14
+46,Victor,testuser6@example.com,87,4,6,21
+47,Sue,testuser7@example.com,91,14,34,7
+48,Rebecca,testuser8@example.com,99,2,38,32
+49,Adam,testuser9@example.com,88,21,29,28
+50,Christopher,testuser10@example.com,88,1,24,20

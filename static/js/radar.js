@@ -1,10 +1,19 @@
 if(document.getElementById('RadarChart')){
     const ctx = document.getElementById('RadarChart').getContext('2d');
+
+    const spans = document.querySelectorAll('.legend-list li span');
+
+    let spanlist = [];
+
+    for(let i=0; i<spans.length; i++){
+        spanlist.push(spans[i].innerHTML)
+    }
+    
     const data = {
     labels: ['Coding', 'Leadership', 'Communication Skill', 'Presentation designing'],
     datasets: [{
         label: 'Student Skill Levels',
-        data: [20, 80, 15, 12],
+        data: spanlist,
         fill: true,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgb(54, 162, 235)',
